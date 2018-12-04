@@ -1,0 +1,67 @@
+page-product {
+    ion-content{
+        background-color: #eee !important;
+    }
+    .toolbar-title-md{
+        padding-left:80px;
+    }
+    .content{
+         margin-top: 0px;
+        background-color: #ffffff; 
+        padding:20px;
+        padding-top: 10px;
+        img{   
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+        .img{
+            width: 15%;
+            float: left;
+        }
+        .name{
+            width: 85%;
+            height: 56px;
+            float: left;
+            padding-top:10px;
+           
+        }    
+        .detail{
+            float: left; 
+            margin-top: -10px;
+            margin-bottom: 10px;
+            color:#2AAF74;
+            font-size: 16px;
+            width: 100%;
+        } 
+        .det{
+            font-size: 13px;
+            padding-top: 20px;
+        }
+        .time{
+            color:rgb(223, 222, 222);
+            float: left;
+            margin-top: -5px;
+        }
+       
+        button{
+            background-color: #fff;
+            float:right;
+            color: red;
+            margin-top: -5px;
+        }
+    }
+    .shangpin{
+        height: 85px;
+        background-color: #ffffff; 
+        margin-top:10px;
+        padding:10px 20px;
+    }
+    .want{
+        width: 85%;
+        float: left;
+       
+        color:#2AAF74;
+        
+    }
+}

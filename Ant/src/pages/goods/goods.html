@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>物品买卖</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="banner">
+      <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+          <ion-slide>
+            <img src="../../assets/imgs/home_banner1.jpg" alt="banner">
+          </ion-slide>
+          <ion-slide>
+              <img src="../../assets/imgs/home_banner2.jpg" alt="banner">
+          </ion-slide>
+          <ion-slide>
+            <img src="../../assets/imgs/home_banner3.jpg" alt="banner">
+          </ion-slide>
+        </ion-slides>
+   </div>
+   <div class="nav">
+      <ul class="navList">
+          <li (click)="change(0)" [class.first]="isActive==0">学习</li>
+          <li (click)="change(1)" [class.first]="isActive==1">美妆</li>
+          <li (click)="change(2)" [class.first]="isActive==2">生活</li>
+          <li (click)="change(3)" [class.first]="isActive==3">其他</li>
+      </ul>
+      <div [ngSwitch]="isActive">
+          <div *ngSwitchCase="'0'">
+              <div class="goods">
+                  <div (click)="Godetail()" class="good">
+                      <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                      <div class="txt">
+                         <span>张嘉佳·个性笔记本</span>
+                         <p>RMB 20</p>
+                      </div>
+                    </div>
+                   <div  (click)="Godetail()" class="good">
+                     <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                     <div class="txt">
+                        <span>张嘉佳·个性笔记本</span>
+                        <p>RMB 20</p>
+                     </div>
+                   </div>
+              </div>
+            <study></study>
+          </div>
+          <div *ngSwitchCase="'1'"><makeup></makeup></div>
+          <div *ngSwitchCase="'2'"><life></life></div>
+          <div *ngSwitchCase="'3'"><others></others></div>
+      </div>
+  </div>
+</ion-content>
