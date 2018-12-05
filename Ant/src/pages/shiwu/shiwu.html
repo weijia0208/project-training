@@ -18,26 +18,24 @@
     <form text-center>
         <ion-grid>
           <ion-row>
-            
             <ion-col col-4><ion-label>标题</ion-label></ion-col>
-            <ion-col col-8><ion-input type="text" style="border:1px solid #555555;">
-  
+            <ion-col col-8><ion-input type="text" style="border:1px solid #555555;"></ion-input></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><ion-label>物品种类</ion-label></ion-col>
+            <ion-col col-8><ion-input [(ngModel)]="kind" name="kind" class="kind" (blur)="show()" type="text" style="border:1px solid #555555;"></ion-input></ion-col>
+        </ion-row>
+            <ion-row id="number" style="display:none">
+            <ion-col col-4><ion-label>卡号</ion-label></ion-col>
+        <ion-col col-8><ion-input type="text" style="border:1px solid #555555;">
             </ion-input></ion-col>
-          </ion-row>
-          <ion-row>
-            
-              <ion-col col-4><ion-label>物品种类</ion-label></ion-col>
-              <ion-col col-8><ion-input type="text" style="border:1px solid #555555;">
-              </ion-input></ion-col>
-          </ion-row>
-          <ion-row>
-            
+            </ion-row>
+            <ion-row>
               <ion-col col-4><ion-label>拾物地点</ion-label></ion-col>
               <ion-col col-8><ion-input type="text" style="border:1px solid #555555;">
               </ion-input></ion-col>
           </ion-row>
           <ion-row>
-            
               <ion-col col-4><ion-label>拾物时间</ion-label></ion-col>
               <ion-col col-8><ion-input type="text" style="border:1px solid #555555;">
               </ion-input></ion-col>

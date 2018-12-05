@@ -98,4 +98,16 @@ export class ShiwuPage {
       this.footersty=!this.footersty;
       document.getElementById('footer').style.display="none";
   }
+
+  kind:string='';
+  html:string='';
+  show(){
+    var txt = this.kind;
+    if(txt=='饭卡'){
+      document.getElementById('number').style.display="";
+    }
+    else{
+      document.getElementById('number').style.display="none";
+    }
+  }
 }
