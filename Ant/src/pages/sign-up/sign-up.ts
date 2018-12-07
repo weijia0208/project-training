@@ -25,11 +25,10 @@ export class SignUpPage {
   }
 
   signin(){
-    //this.App.getRootNavs()[0].setRoot(SignInPage);
-    this.navCtrl.push(SignInPage);
+    this.App.getRootNavs()[0].setRoot(SignInPage);
   }
+  
   Home(){
-    //this.App.getRootNavs()[0].setRoot(TabsPage);
-    this.navCtrl.push(TabsPage);
+    this.App.getRootNavs()[0].setRoot(TabsPage);
   }
 }

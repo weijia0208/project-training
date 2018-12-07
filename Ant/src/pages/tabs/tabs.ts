@@ -21,8 +21,10 @@ export class TabsPage {
 
   }
 
+
   ionViewDidLoad(){
-    document.querySelector('#tab-t0-2').addEventListener('click',()=>{
+    var a = document.querySelectorAll('a')[2];
+    a.addEventListener('click',()=>{
       let profileModal = this.modalCtrl.create(AddPage);
       profileModal.present();
     },false);

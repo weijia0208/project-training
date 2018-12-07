@@ -25,8 +25,20 @@ export class SignInPage {
   }
 
   signup(){
-    //this.App.getRootNavs()[0].setRoot(SignUpPage);
-    this.navCtrl.push(SignUpPage);
+    this.App.getRootNavs()[0].setRoot(SignUpPage);
+    //this.navCtrl.push(SignUpPage);
+  }
+
+  id:string='';
+  show(){
+    var txt = this.id;
+    console.log(txt);
+    if(txt=='student'){
+      document.getElementById('number').style.display="";
+    }
+    else{
+      document.getElementById('number').style.display="none";
+    }
   }
   
 

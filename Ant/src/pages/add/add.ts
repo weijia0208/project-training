@@ -5,6 +5,8 @@ import { JianzhiPage } from '../jianzhi/jianzhi';
 import { ShiwuPage } from '../shiwu/shiwu';
 import { WupinPage } from '../wupin/wupin';
 import { YiwoPage } from '../yiwo/yiwo';
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the AddPage page.
@@ -27,7 +29,7 @@ export class AddPage {
     console.log('ionViewDidLoad AddPage');
   }
   close(){
-    this.navCtrl.pop();
+     this.navCtrl.pop();
   }
   goPage1(){
     this.navCtrl.push(DaiquPage);

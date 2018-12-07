@@ -10,6 +10,7 @@ import { MorePage } from '../more/more';
 import { ParttimePage } from '../parttime/parttime';
 import { FriendPage } from '../friend/friend';
 import { ReplacePage } from '../replace/replace';
+import { TodoPage } from '../todo/todo';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -50,6 +51,9 @@ export class HomePage {
   }
   GoFriend(){
     this.navCtrl.push(FriendPage);
+  }
+  GoTodo(){
+    this.navCtrl.push(TodoPage);
   }
 
 

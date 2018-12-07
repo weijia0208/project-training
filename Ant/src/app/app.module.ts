@@ -51,6 +51,7 @@ import { ZiliaoPage } from '../pages/ziliao/ziliao';
 import { MyPartPage } from '../pages/my-part/my-part';
 import { SocialdetailPage } from '../pages/socialdetail/socialdetail';
 import { ReplacePage } from '../pages/replace/replace';
+import { TodoPage } from '../pages/todo/todo';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import { ReplacePage } from '../pages/replace/replace';
     ZiliaoPage,
     MyPartPage,
     SocialdetailPage,
-    ReplacePage
+    ReplacePage,
+    TodoPage
   ],
   imports: [
     BrowserModule,
@@ -147,7 +149,8 @@ import { ReplacePage } from '../pages/replace/replace';
     ZiliaoPage,
     MyPartPage,
     SocialdetailPage,
-    ReplacePage
+    ReplacePage,
+    TodoPage
   ],
   providers: [
     StatusBar,
