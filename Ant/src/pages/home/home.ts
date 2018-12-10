@@ -11,6 +11,7 @@ import { ParttimePage } from '../parttime/parttime';
 import { FriendPage } from '../friend/friend';
 import { ReplacePage } from '../replace/replace';
 import { TodoPage } from '../todo/todo';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +21,7 @@ export class HomePage {
   icons:string="camera";
   items = [];
 
-  constructor(public http:HttpClient,public navCtrl: NavController) {
+  constructor(private iab: InAppBrowser,public http:HttpClient,public navCtrl: NavController) {
     for (let i = 0; i < 30; i++) {
       this.items.push( this.items.length );
     }
@@ -55,50 +56,17 @@ export class HomePage {
   GoTodo(){
     this.navCtrl.push(TodoPage);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  link(){
+    const browser = this.iab.create('http://jwgl.hebtu.edu.cn/xtgl/login_slogin.html?language=zh_CN&_t=1544400833226');
+    browser.close();
+  }
 
 
 
   ionViewDidLoad(){
-    // 调用组件的方法，和@ViewChild连用
-    // this.ac.get();
   }
   // 上拉加载
   doInfinite(infiniteScroll){
-    // 真正异步请求数据
-    // this.http.get('/api/courses').subscribe(data=>{
-    //   console.log(data);
-    //   infiniteScroll.complete();
-    // })
-    // 定时器模拟异步操作
-    // setTimeout(() => {
-    //   for (let i = 0; i < 30; i++) {
-    //     this.items.push( this.items.length );
-    //   }
-    //   infiniteScroll.complete();
-    //   if(this.items.length>90){
-    //     infiniteScroll.enable();
-    //   }
-    // }, 500);
   }
   // 下拉刷新
   doRefresh(refresher) {
