@@ -49,10 +49,14 @@ import { SetPage } from '../pages/set/set';
 import { SuccessPage } from '../pages/success/success';
 import { ThinkPage } from '../pages/think/think';
 import { ZiliaoPage } from '../pages/ziliao/ziliao';
-import { MyPartPage } from '../pages/my-part/my-part';
 import { SocialdetailPage } from '../pages/socialdetail/socialdetail';
 import { ReplacePage } from '../pages/replace/replace';
 import { TodoPage } from '../pages/todo/todo';
+import { MyReplacePage } from '../pages/my-replace/my-replace';
+import { DelgoodsPage } from '../pages/delgoods/delgoods';
+import { LostdelPage } from '../pages/lostdel/lostdel';
+import { SocialdelPage } from '../pages/socialdel/socialdel';
+import { PartdelPage } from '../pages/partdel/partdel';
 
 
 @NgModule({
@@ -94,10 +98,14 @@ import { TodoPage } from '../pages/todo/todo';
     SuccessPage,
     ThinkPage,
     ZiliaoPage,
-    MyPartPage,
     SocialdetailPage,
     ReplacePage,
-    TodoPage
+    TodoPage,
+    MyReplacePage,
+    DelgoodsPage,
+    LostdelPage,
+    SocialdelPage,
+    PartdelPage
   ],
   imports: [
     BrowserModule,
@@ -148,17 +156,21 @@ import { TodoPage } from '../pages/todo/todo';
     SuccessPage,
     ThinkPage,
     ZiliaoPage,
-    MyPartPage,
     SocialdetailPage,
     ReplacePage,
-    TodoPage
+    TodoPage,
+    MyReplacePage,
+    DelgoodsPage,
+    LostdelPage,
+    SocialdelPage,
+    PartdelPage
   ],
   providers: [
     StatusBar,
     Camera,
+    InAppBrowser,
     ImagePicker,
     SplashScreen,
-    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

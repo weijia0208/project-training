@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GoodsdetailPage } from '../goodsdetail/goodsdetail';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the MorePage page.
@@ -16,15 +17,20 @@ import { GoodsdetailPage } from '../goodsdetail/goodsdetail';
 })
 export class MorePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MorePage');
+  goods;
+  ionViewDidLoad(){
+    this.http.get('/before/commodity').subscribe(data=>{
+      this.goods = data;
+    })
   }
 
-  Godetail(){
-    this.navCtrl.push(GoodsdetailPage);
+  Godetail(i){
+    this.navCtrl.push(GoodsdetailPage,{
+      content:this.goods[i]
+    });
   }
 
 }

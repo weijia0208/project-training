@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the SocialdetailPage page.
@@ -16,11 +17,16 @@ import { ChatPage } from '../chat/chat';
 })
 export class SocialdetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  content;
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
+    this.content = navParams.get('content');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SocialdetailPage');
+  issue=[];
+  ionViewDidLoad(){
+    this.http.get('/before/issue').subscribe(data=>{
+      this.issue[0] = this.content;
+    })
   }
 
   chat(){

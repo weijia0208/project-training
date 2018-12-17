@@ -30,26 +30,56 @@
       <div [ngSwitch]="isActive">
           <div *ngSwitchCase="'0'">
               <div class="goods">
-                  <div (click)="Godetail()" class="good">
-                      <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
-                      <div class="txt">
-                         <span>张嘉佳·个性笔记本</span>
-                         <p>RMB 20</p>
-                      </div>
-                    </div>
-                   <div  (click)="Godetail()" class="good">
-                     <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
-                     <div class="txt">
-                        <span>张嘉佳·个性笔记本</span>
-                        <p>RMB 20</p>
-                     </div>
-                   </div>
+                  <ul>
+                      <li *ngFor="let item of study;let i =index;" class="li" (click)="GoSdetail(i)">
+                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <div class="txt">
+                             <span>{{item.goods_name}}</span>
+                             <p>RMB{{item.goods_price}}</p>
+                           </div>
+                      </li>
+                    </ul>
               </div>
-            <study></study>
           </div>
-          <div *ngSwitchCase="'1'"><makeup></makeup></div>
-          <div *ngSwitchCase="'2'"><life></life></div>
-          <div *ngSwitchCase="'3'"><others></others></div>
+          <div *ngSwitchCase="'1'">
+              <div class="goods">
+                  <ul>
+                      <li *ngFor="let item of makeup;let i =index;" class="li" (click)="GoMdetail(i)">
+                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <div class="txt">
+                             <span>{{item.goods_name}}</span>
+                             <p>RMB{{item.goods_price}}</p>
+                           </div>
+                      </li>
+                    </ul>
+              </div>
+          </div>
+          <div *ngSwitchCase="'2'">
+              <div class="goods">
+                  <ul>
+                      <li *ngFor="let item of life;let i =index;" class="li" (click)="GoLdetail(i)">
+                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <div class="txt">
+                             <span>{{item.goods_name}}</span>
+                             <p>RMB{{item.goods_price}}</p>
+                           </div>
+                      </li>
+                    </ul>
+              </div>
+          </div>
+          <div *ngSwitchCase="'3'">
+              <div class="goods">
+                  <ul>
+                      <li *ngFor="let item of other;let i =index;" class="li" (click)="GoOdetail(i)">
+                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <div class="txt">
+                             <span>{{item.goods_name}}</span>
+                             <p>RMB{{item.goods_price}}</p>
+                           </div>
+                      </li>
+                    </ul>
+              </div>
+          </div>
       </div>
   </div>
 </ion-content>

@@ -6,30 +6,32 @@
 
 
 <ion-content>
-  <div class="head">
-    <img src="../../assets/imgs/lost_head.jpg" alt="">
-    <div class="txt">
-      <p>yaojing</p>
-      <span class="time">16:40</span>
-      <span class="place">启智园6号楼</span>
-    </div>
-  </div>
-  <h3>365超市诚聘收银员</h3>
-  <div class="money">
-    <p>80/天&nbsp;&nbsp;日结</p>
-  </div>
-  <div class="context">
-    <p>工作时间：星期一至星期五</p>
-    <p>工作地点：河北师范大学内365超市</p>
-  </div>
-  <div class="detail">
-    <p>职位描述</p>
-    <p style="text-indent:2em">职位描述又叫职位界定，对经过职位分析得到的关于某一特定职位的职责和工作内容进行的一种书面记录其成果叫工作说明书(job description)，日文中工作描述就是给工作画像，是把工作所具有的一些特征用白描的手法写下来。
-    </p>
-  </div>
+  <ul>
+    <li *ngFor="let item of job">
+        <div class="head">
+            <img src="../../assets/imgs/lost_head.jpg" alt="">
+            <div class="txt">
+              <p>{{item.username}}</p>
+              <span class="time">{{item.part_date}}</span>
+            </div>
+          </div>
+          <h3>{{item.part_name}}</h3>
+          <div class="money">
+            <p>{{item.part_price}}</p>
+          </div>
+          <div class="context">
+            <p>工作时间：{{item.part_worktime}}</p>
+            <p>工作地点：{{item.part_addr}}</p>
+          </div>
+          <div class="detail">
+            <p>职位描述</p>
+            <p style="text-indent:2em">{{item.part_content}}</p>
+          </div>
+    </li>
+  </ul>
 </ion-content>
 <ion-footer>
     <div class="but">
-        <button (click)="chat()">联系他</button>
+        <button id="button" (click)="chat()">联系他</button>
       </div>
 </ion-footer>

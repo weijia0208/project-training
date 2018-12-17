@@ -28,16 +28,14 @@ page-message {
             }
         }
         .msg{
-            width:65%;
+            width:75%;
+            height:50px;
+            overflow: hidden;
             a{
                 color:#F7BE7F;
             }
             margin-top: 5px;
             line-height: 27px;
-        }
-        .time{
-            width: 15%;
-            margin-top: 35px;
         }
     }
 }

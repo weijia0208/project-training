@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PushsuccessPage } from '../pushsuccess/pushsuccess';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+import {HttpClient} from '@angular/common/http';
 
 /**
  * Generated class for the ShiwuPage page.
@@ -18,10 +19,10 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 })
 export class ShiwuPage {
 
-  constructor(private camera: Camera,public navCtrl: NavController,private imagePicker: ImagePicker,public navParams: NavParams) {
+  constructor(public http:HttpClient,private camera: Camera,public navCtrl: NavController,private imagePicker: ImagePicker,public navParams: NavParams) {
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShiwuPage');
+    
   }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
@@ -100,7 +101,6 @@ export class ShiwuPage {
   }
 
   kind:string='';
-  html:string='';
   show(){
     var txt = this.kind;
     if(txt=='饭卡'){

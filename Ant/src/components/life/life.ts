@@ -15,7 +15,6 @@ export class LifeComponent {
   text: string;
 
   constructor() {
-    console.log('Hello LifeComponent Component');
     this.text = 'Hello World';
   }
 

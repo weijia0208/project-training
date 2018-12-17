@@ -5,19 +5,30 @@
 </ion-header>
 
 <ion-content>
-  
-  <div class="content">
-    <div class="img"><img src="../assets/imgs/touxiang.jpg" alt=""></div>
-    <div class="name">yaojing</div>
-    <div class="detail">燕麦片*圆通快递</div>
-    <p class="det"> &nbsp;&nbsp; &nbsp;&nbsp;    一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的； 一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的；</p>
-    <p class="time">14:57</p>
-    <button>删除</button>
-  </div>
-  <div class="shangpin">
-      <div class="img"><img src="../assets/imgs/touxiang.jpg" alt=""></div>
-      <div class="want">#我想要#</div>
-      <div>亲爱的胖蚁们，我想要一个OPPOR17 pro，至少八成新……</div>
-      <button>删除</button>
-</div>
+    <ul>
+        <li *ngFor="let item of job;let i=index;">
+          <div class="content1">
+            <h5 (click)="GoDetail1(i)">{{item.part_name}}</h5>
+            <p>{{item.part_addr}}</p>
+          </div>
+        </li>
+      </ul>
+    <ul>
+        <li *ngFor="let item of issue;let i=index;">
+        <div class="content2" (click)="GoDetail2(i)">
+          <div class="label">{{item.issue_lable}}</div>
+          <p>{{item.issue_content}}</p>
+        </div>
+      </li>
+    </ul>
+    <ul>
+        <li *ngFor="let item of found;let i=index;">
+            <div class="content3" (click)="GoDetail3(i)">
+                <div class="txt">
+                  <span>{{item.item_name}}</span>
+                  <p>{{item.item_type}}·{{item.item_content}}</p>
+                </div>
+              </div>
+        </li>
+    </ul>
 </ion-content>

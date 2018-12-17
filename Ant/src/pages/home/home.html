@@ -54,7 +54,7 @@
       <ion-icon name="ios-clipboard-outline"></ion-icon>
       <span>日志清单</span>
    </div>
-    <div (click)="link()" class="tip">
+    <div class="tip" (click)="link()">
       <ion-icon name="ios-school-outline"></ion-icon>
       <span>教务系统</span>
    </div>
@@ -72,33 +72,16 @@
    </a>
  </div>
  <div class="goods">
-    <div class="good" (click)="Godetail()">
-     <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
-     <div class="txt">
-        <span>张嘉佳·个性笔记本</span>
-        <p>RMB 20</p>
-     </div>
-   </div>
-   <div class="good" (click)="Godetail()">
-      <img src="../../assets/imgs/home_goods2.jpg" alt="picture">
-      <div class="txt">
-          <span>完美日记口红</span>
-          <p>RMB 20</p>
-      </div>
-    </div>
-    <div class="good" (click)="Godetail()">
-        <img src="../../assets/imgs/home_goods3.jpg" alt="picture">
-        <div class="txt">
-            <span>上铺床上窗帘</span>
-            <p>RMB 100</p>
-        </div>
-      </div>
-      <div class="good" (click)="Godetail()">
-          <img src="../../assets/imgs/home_goods4.jpg" alt="picture">
+    <ul>
+      <li *ngFor="let item of new;let i =index;">
+        <div class="li" (click)="Godetail(i)">
+          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
           <div class="txt">
-              <span>百草味芒果干</span>
-              <p>RMB 30</p>
-          </div>
+             <p style="color:#ffffff;">{{item.goods_name}}</p>
+             <p style="color:#f7be7f;">RMB&nbsp;&nbsp;{{item.goods_price}}</p>
+           </div>
         </div>
- </div>
+      </li>
+    </ul>
+</div>
 </ion-content>

@@ -14,20 +14,16 @@
     <div class="banner">
       <img src="assets/imgs/timg.jpg" alt="">
     </div>
-    <div class="content">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <p class="name">yaojing</p>
-      <h4>燕麦片&nbsp;|&nbsp;圆通快递</h4>
-      <p class="issue">      一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的； 一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的；</p>
-      <p class="time">14:14</p>
-      <button (click)="chat()" ion-button>联系对方</button>
-    </div>
-    <div class="content">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <p class="name">yaojing</p>
-      <h4>燕麦片&nbsp;|&nbsp;圆通快递</h4>
-      <p class="issue">      一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的； 一个西门的快递，燕麦片，大概三斤重，有能帮忙取快递的同学可以联系我，在线等，挺急的；</p>
-      <p class="time">14:14</p>
-      <button (click)="chat()" ion-button>联系对方</button>
-    </div>
+   <ul>
+     <li *ngFor="let item of delivery">
+        <div class="content">
+            <img src="assets/imgs/touxiang.jpg" alt="">
+            <p class="name">{{item.username}}</p>
+            <h5>{{item.take_name}}&nbsp;|&nbsp;{{item.take_place}}</h5>
+            <p class="issue">{{item.take_content}}</p>
+            <p class="time">{{item.take_time}}</p>
+            <button (click)="chat()" ion-button>联系对方</button>
+          </div>
+     </li>
+   </ul>
   </ion-content>

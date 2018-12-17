@@ -5,25 +5,9 @@
 </ion-header>
 <ion-content>
   <ul class="content">
-    <li (click)="chat()">
+    <li *ngFor="let item of chats" (click)="chat()">
       <div class="peo"><img src="assets/imgs/touxiang.jpg" alt=""></div> 
-      <div class="msg"><a>阿毛</a><br>亲,价格可以再商量。</div>  
-      <div class="time">11:15</div>     
-    </li>
-    <li (click)="chat()">
-        <div class="peo"><img src="assets/imgs/touxiang.jpg" alt=""></div> 
-        <div class="msg"><a>朔风如解意</a><br>亲,价格可以再商量。</div>  
-        <div class="time">11:15</div>
-    </li>
-    <li (click)="chat()">
-        <div class="peo"><img src="assets/imgs/touxiang.jpg" alt=""></div> 
-        <div class="msg"><a>阿毛</a><br>同学，你捡到了我的东西</div>  
-        <div class="time">11:15</div>
-    </li> 
-    <li (click)="chat()">
-        <div class="peo"><img src="assets/imgs/touxiang.jpg" alt=""></div> 
-        <div class="msg"><a>阿花</a><br>亲,价格可以再商量。</div>  
-        <div class="time">11:15</div>
+      <div class="msg"><a>{{item.chatting}}</a><br>{{item.content}}</div>    
     </li>
   </ul>
 </ion-content>

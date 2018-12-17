@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SocialdetailPage} from '../socialdetail/socialdetail';
+import { HttpClient } from '@angular/common/http';
 /**
  * Generated class for the SocialPage page.
  *
@@ -15,15 +16,20 @@ import { SocialdetailPage} from '../socialdetail/socialdetail';
 })
 export class SocialPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  issues;
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SocialPage');
+    this.http.get('/before/issue').subscribe(data=>{
+     this.issues = data;
+    })
   }
 
-  go(){
-    this.navCtrl.push(SocialdetailPage);
+  GoDetail(i){
+    this.navCtrl.push(SocialdetailPage,{
+      content:this.issues[i]
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+import {HttpClient} from '@angular/common/http';
 
 /**
  * Generated class for the ZiliaoPage page.
@@ -17,8 +18,27 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 })
 export class ZiliaoPage {
 
-  constructor(private camera: Camera,private imagePicker: ImagePicker, public navParams: NavParams,public navCtrl: NavController,private toastCtrl: ToastController) {
+  username:string;
+  constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker, public navParams: NavParams,public navCtrl: NavController,private toastCtrl: ToastController) {
+   this.username = navParams.get('name');
   }
+
+  users;
+  user=[];
+  ionViewDidLoad() {
+    //console.log(this.username);
+    this.http.get('/before/user').subscribe(data=>{
+      this.users=data;
+      var a=0;
+      for(var i=0;i<this.users.length;i++){
+        if(this.users[i].username==this.username){
+          this.user[a]=this.users[i];
+          a++;
+        }
+      }
+    })
+  }
+
   footersty:boolean=false;
 
   change(){
@@ -79,8 +99,6 @@ export class ZiliaoPage {
   setting(){
     // this.navCtrl.push(SetPage);
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ZiliaoPage');
-  }
+  
 
 }

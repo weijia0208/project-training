@@ -10,16 +10,20 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-list class="xingming">
-    <ion-item>昵 &nbsp;&nbsp;&nbsp;称<input type="text" placeholder="yaojing">
-        <div class="touxiang"><img src="{{imgURL}}" alt="" (click)="change()"></div>
-    </ion-item>
-  </ion-list>
-  <ion-list class="zhanghao">
-    <ion-item>手机号<input type="text" placeholder="12345678910"></ion-item>
-    <ion-item>密  &nbsp;&nbsp;&nbsp;码<input type="text" placeholder="**********"></ion-item>
-  </ion-list>
-  <div class="submit"><button (click)="setting()">确认保存</button></div>
+ <ul>
+   <li *ngFor="let item of user">
+    <ion-list class="xingming">
+      <ion-item>昵 &nbsp;&nbsp;&nbsp;称<input type="text" value="{{item.username}}">
+          <div class="touxiang"><img src="{{imgURL}}" alt="" (click)="change()"></div>
+      </ion-item>
+    </ion-list>
+    <ion-list class="zhanghao">
+      <ion-item>手机号<input type="text" value="{{item.telNum}}"></ion-item>
+      <ion-item>密  &nbsp;&nbsp;&nbsp;码<input type="password" value="{{item.password}}"></ion-item>
+    </ion-list>
+    <div class="submit"><button (click)="setting()">确认保存</button></div>
+   </li>
+ </ul>
 </ion-content>
 <ion-footer style="display:none;background-color: #aaa;" id="footer">
   <button ion-button block (click)="takephoto()">拍照</button>

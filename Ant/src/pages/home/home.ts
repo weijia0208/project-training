@@ -26,6 +26,21 @@ export class HomePage {
       this.items.push( this.items.length );
     }
   }
+  goods;
+  new=[];
+  ionViewDidLoad(){
+    this.http.get('/before/commodity').subscribe(data=>{
+      this.goods = data;
+      var j=0;
+      var l = this.goods.length;
+      for(var i=l-1;i>=l-10;i--){
+        this.new[j]=this.goods[i];
+        j++;
+      }
+    })
+  }
+ 
+
   GoSchool(){
     this.navCtrl.push(SchoolsearchPage);
   }
@@ -41,8 +56,10 @@ export class HomePage {
   GoReplace(){
     this.navCtrl.push(ReplacePage);
   }
-  Godetail(){
-    this.navCtrl.push(GoodsdetailPage);
+  Godetail(i){
+    this.navCtrl.push(GoodsdetailPage,{
+      content:this.new[i]
+    });
   }
   GoMore(){
     this.navCtrl.push(MorePage);
@@ -61,10 +78,6 @@ export class HomePage {
     browser.close();
   }
 
-
-
-  ionViewDidLoad(){
-  }
   // 上拉加载
   doInfinite(infiniteScroll){
   }
