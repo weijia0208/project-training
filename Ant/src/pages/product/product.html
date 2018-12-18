@@ -22,7 +22,7 @@
       </li>
     </ul>
     <ul>
-        <li *ngFor="let item of found;let i=index;">
+        <li id="one" *ngFor="let item of found;let i=index;">
             <div class="content3" (click)="GoDetail3(i)">
                 <div class="txt">
                   <span>{{item.item_name}}</span>

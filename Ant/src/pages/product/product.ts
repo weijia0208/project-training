@@ -19,9 +19,8 @@ import { LostdelPage } from '../lostdel/lostdel';
 })
 export class ProductPage {
 
-  uname:string;
+
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
-    this.uname = navParams.get('name');
   }
 
   issues;
@@ -31,11 +30,14 @@ export class ProductPage {
   founds;
   found=[];
   ionViewDidLoad() {
+    var username=localStorage.getItem(name);
+    //console.log(username);
+
     this.http.get('/before/partime_job').subscribe(data=>{
       this.jobs=data;
       var a=0;
       for(var i=0;i<this.jobs.length;i++){
-        if(this.jobs[i].username==this.uname){
+        if(this.jobs[i].username==username){
           this.job[a]=this.jobs[i];
           a++;
         }
@@ -46,7 +48,7 @@ export class ProductPage {
       var b=0;
       for(var i=0;i<this.issues.length;i++)
       {
-        if(this.issues[i].username==this.uname){
+        if(this.issues[i].username==username){
           this.issue[b]=this.issues[i];
           b++;
         }
@@ -57,7 +59,7 @@ export class ProductPage {
       var c=0;
       for(var i=0;i<this.founds.length;i++)
       {
-        if(this.founds[i].username==this.uname){
+        if(this.founds[i].username==username){
           this.found[c]=this.founds[i];
           c++;
         }

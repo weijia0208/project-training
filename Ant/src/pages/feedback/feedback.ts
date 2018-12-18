@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+import { SuccessPage } from '../success/success';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the FeedbackPage page.
@@ -16,14 +18,20 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
   templateUrl: 'feedback.html',
 })
 export class FeedbackPage {
-
-  constructor(private camera:Camera,private imagePicker: ImagePicker,public navParams: NavParams,public navCtrl: NavController) {
+  feedback;
+  feedtype;
+  constructor(public http:HttpClient,private camera:Camera,private imagePicker: ImagePicker,public navParams: NavParams,public navCtrl: NavController) {
   }
   go(){
-    // this.navCtrl.push(SuccessPage);
+    this.navCtrl.push(SuccessPage);
+    this.http.post('/before/feedback',{feed_type:this.feedtype,feed_content:this.feedback}).subscribe((data)=>{
+
+    });
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedbackPage');
+    // this.http.get('/before/user').subscribe((data)=>{
+    //   console.log(data);
+    // })
   }
   footersty:boolean=false;
   change(){

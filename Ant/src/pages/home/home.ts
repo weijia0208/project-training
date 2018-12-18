@@ -25,6 +25,7 @@ export class HomePage {
     for (let i = 0; i < 30; i++) {
       this.items.push( this.items.length );
     }
+    
   }
   goods;
   new=[];

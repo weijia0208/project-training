@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController} from 'ionic-angular';
+import { ModalController, NavParams} from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { SocialPage } from '../social/social';
@@ -17,11 +17,10 @@ export class TabsPage {
   tab3Root = MessagePage;
   tab4Root = MinePage;
 
-  constructor(public modalCtrl: ModalController) {
-
+  username:string;
+  constructor(public modalCtrl: ModalController,public navParams: NavParams) {
   }
-
-
+  
   ionViewDidLoad(){
     var a = document.querySelectorAll('a')[2];
     a.addEventListener('click',()=>{
