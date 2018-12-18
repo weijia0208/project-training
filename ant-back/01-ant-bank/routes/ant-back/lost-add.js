@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/lost-add.js');
+const Lost = require('../../models/ant-back/lost-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var lost = new Lost();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  lost.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

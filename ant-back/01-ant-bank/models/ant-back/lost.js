@@ -1,9 +1,9 @@
 const db = require('../database.js');
 
-var user = function(){};
+var lost = function(){};
 
 /*查*/
-user.prototype.getAll = function(cb){
+lost.prototype.getAll = function(cb){
   const sql = 'SELECT * from found';
   var items = [];
   db.query(sql,function(err,result){
@@ -17,7 +17,7 @@ user.prototype.getAll = function(cb){
 };
 
 /*增*/
-user.prototype.addItem = function(e,cb){
+lost.prototype.addItem = function(e,cb){
   const sql = 'INSERT INTO found VALUES(?,?,?,?,?,?,?,?,?,?)';
   db.query(sql,[e.username,e.item_id,e.item_time,e.item_name,e.item_type,e.item_addr,e.item_date,e.item_content,e.item_pic,e.item_number],function(err,result){
     if(err){
@@ -29,7 +29,7 @@ user.prototype.addItem = function(e,cb){
 };
 
 /*删*/
-user.prototype.delItem = function(item_id,cb){
+lost.prototype.delItem = function(item_id,cb){
   const sql = 'DELETE FROM found WHERE item_id=?';
   db.query(sql,[item_id],function(err,result){
     if(err){
@@ -40,7 +40,7 @@ user.prototype.delItem = function(item_id,cb){
   });
 };
 
-user.prototype.delAll = function(cb){
+lost.prototype.delAll = function(cb){
   const sql = 'DELETE FROM found';
   db.query(sql,function(err,results){
     if(err){
@@ -52,7 +52,7 @@ user.prototype.delAll = function(cb){
 };
 
 /*改*/
-user.prototype.update = function(id,username,cb){
+lost.prototype.update = function(id,username,cb){
   const sql = 'UPDATE found SET username = ? WHERE id = ?';
   db.query(sql,[username,id],function(err,results){
     if(err){
@@ -63,4 +63,4 @@ user.prototype.update = function(id,username,cb){
   });
 };
 
-module.exports = user;
+module.exports = lost;

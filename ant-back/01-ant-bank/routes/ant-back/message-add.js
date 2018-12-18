@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/message-add.js');
+const Message = require('../../models/ant-back/message-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var message = new Message();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  message.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

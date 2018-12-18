@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/goods-add.js');
+const Goods = require('../../models/ant-back/goods-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var good = new Goods();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  good.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

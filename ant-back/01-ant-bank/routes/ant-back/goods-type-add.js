@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/goods-type-add.js');
+const GoodsTypes = require('../../models/ant-back/goods-type-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var goodstype = new GoodsTypes();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  goodstype.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

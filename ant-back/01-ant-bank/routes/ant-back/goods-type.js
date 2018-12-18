@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/goods-type.js');
+const GoodsTypes = require('../../models/ant-back/goods-type.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var goodstype = new GoodsTypes();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  goodstype.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;
@@ -19,7 +19,7 @@ router.post('/',function(req,res){
   res.header('Access-Control-Allow-Origin','*');
   //console.log(req.body);
   if(req.body !== '') {
-    user.addItem(JSON.parse(req.body.item), (err) => {
+    goodstype.addItem(JSON.parse(req.body.item), (err) => {
       //console.log(req.body.item);
       if(err) {
         res.status(500).send('DB error!');

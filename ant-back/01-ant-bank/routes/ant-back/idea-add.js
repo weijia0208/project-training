@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/idea-add.js');
+const Ideas = require('../../models/ant-back/idea-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var idea = new Ideas();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  idea.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

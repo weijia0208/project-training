@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/article-add.js');
+const Articles = require('../../models/ant-back/article-add.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var article = new Articles();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  article.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;

@@ -1,9 +1,9 @@
 const db = require('../database.js');
 
-var user = function(){};
+var exp = function(){};
 
 /*查*/
-user.prototype.getAll = function(cb){
+exp.prototype.getAll = function(cb){
   const sql = 'SELECT * from delivery';
   var items = [];
   db.query(sql,function(err,result){
@@ -17,7 +17,7 @@ user.prototype.getAll = function(cb){
 };
 
 /*增*/
-user.prototype.addItem = function(e,cb){
+exp.prototype.addItem = function(e,cb){
   const sql = 'INSERT INTO delivery VALUES(?,?,?,?,?,?)';
   db.query(sql,[e.username,e.take_id,e.take_time,e.take_name,e.take_place,e.take_content],function(err,result){
     if(err){
@@ -29,7 +29,7 @@ user.prototype.addItem = function(e,cb){
 };
 
 /*删*/
-user.prototype.delItem = function(take_id,cb){
+exp.prototype.delItem = function(take_id,cb){
   const sql = 'DELETE FROM delivery WHERE take_id=?';
   db.query(sql,[take_id],function(err,result){
     if(err){
@@ -40,7 +40,7 @@ user.prototype.delItem = function(take_id,cb){
   });
 };
 
-user.prototype.delAll = function(cb){
+exp.prototype.delAll = function(cb){
   const sql = 'DELETE FROM delivery';
   db.query(sql,function(err,results){
     if(err){
@@ -52,7 +52,7 @@ user.prototype.delAll = function(cb){
 };
 
 /*改*/
-user.prototype.update = function(id,username,cb){
+exp.prototype.update = function(id,username,cb){
   const sql = 'UPDATE delivery SET username = ? WHERE take_id = ?';
   db.query(sql,[username,id],function(err,results){
     if(err){
@@ -63,4 +63,4 @@ user.prototype.update = function(id,username,cb){
   });
 };
 
-module.exports = user;
+module.exports = exp;

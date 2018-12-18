@@ -1,9 +1,9 @@
 const db = require('../database.js');
 
-var user = function(){};
+var goodstype = function(){};
 
 /*查*/
-user.prototype.getAll = function(cb){
+goodstype.prototype.getAll = function(cb){
   const sql = 'SELECT * from groups';
   var items = [];
   db.query(sql,function(err,result){
@@ -17,7 +17,7 @@ user.prototype.getAll = function(cb){
 };
 
 /*增*/
-user.prototype.addItem = function(e,cb){
+goodstype.prototype.addItem = function(e,cb){
   const sql = 'INSERT INTO groups VALUES(?,?)';
   db.query(sql,[e.goods_type,e.good_num],function(err,result){
     if(err){
@@ -29,7 +29,7 @@ user.prototype.addItem = function(e,cb){
 };
 
 /*删*/
-user.prototype.delItem = function(goods_type,cb){
+goodstype.prototype.delItem = function(goods_type,cb){
   const sql = 'DELETE FROM groups WHERE goods_type=?';
   db.query(sql,[goods_type],function(err,result){
     if(err){
@@ -40,7 +40,7 @@ user.prototype.delItem = function(goods_type,cb){
   });
 };
 
-user.prototype.delAll = function(cb){
+goodstype.prototype.delAll = function(cb){
   const sql = 'DELETE FROM groups';
   db.query(sql,function(err,results){
     if(err){
@@ -52,7 +52,7 @@ user.prototype.delAll = function(cb){
 };
 
 /*改*/
-user.prototype.update = function(id,username,cb){
+goodstype.prototype.update = function(id,username,cb){
   const sql = 'UPDATE groups SET username = ? WHERE id = ?';
   db.query(sql,[username,id],function(err,results){
     if(err){
@@ -63,4 +63,4 @@ user.prototype.update = function(id,username,cb){
   });
 };
 
-module.exports = user;
+module.exports = goodstype;

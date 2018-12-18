@@ -1,12 +1,12 @@
-const Users = require('../../models/ant-back/message.js');
+const Message = require('../../models/ant-back/message.js');
 var express = require('express');
 var router = express.Router();
 
-var user = new Users();
+var message = new Message();
 
 /* GET home page. */
 router.get('/',function(req, res/*, next*/) {
-  user.getAll((err,result)=>{
+  message.getAll((err,result)=>{
     if(err){
       console.error(err);
       return;
@@ -19,7 +19,7 @@ router.post('/',function(req,res){
   res.header('Access-Control-Allow-Origin','*');
   //console.log(req.body);
   if(req.body !== '') {
-    user.addItem(JSON.parse(req.body.item), (err) => {
+    message.addItem(JSON.parse(req.body.item), (err) => {
       //console.log(req.body.item);
       if(err) {
         res.status(500).send('DB error!');
