@@ -10,11 +10,9 @@
     <p style="float:right;padding-right:20px;color:#2AAF74" (click)="gosuccess()">发布</p>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content>
   <form text-center>
-    <ion-textarea name="txt" [(ngModel)]="text" placeholder="#分享你的故事#"></ion-textarea>
+    <ion-textarea name="txt" [(ngModel)]="text" placeholder="#分享你的故事#" [(ngModel)]="issue_content"></ion-textarea>
     <div id="div1" text-left>
       <div><img src="assets/imgs/takephoto.png" style="width:106px;" (click)="change()"></div>
     </div>

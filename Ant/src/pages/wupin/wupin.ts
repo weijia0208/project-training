@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PushsuccessPage } from '../pushsuccess/pushsuccess';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the WupinPage page.
@@ -16,7 +17,24 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
   templateUrl: 'wupin.html',
 })
 export class WupinPage {
-  constructor(private camera: Camera,private imagePicker: ImagePicker,public navCtrl: NavController, public navParams: NavParams) {
+  username:string=localStorage.getItem(name);;
+  goods_name;
+  goods_price;
+  goods_type;
+  goods_addr;
+  goods_date;
+  goods_description;
+  goods_pic;
+ 
+  constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker,public navCtrl: NavController, public navParams: NavParams) {
+  }
+  gosuccess(){
+    this.navCtrl.push(PushsuccessPage);
+    this.goods_date=JSON.stringify(new Date());
+    this.http.post('/before/twocommodity/wupin',{
+      goods_price:this.goods_price,goods_type:this.goods_type,username:this.username,goods_addr:this.goods_addr,goods_date:this.goods_date,goods_description:this.goods_description}).subscribe(data => {
+      console.log(data);
+    })
   }
   footersty:boolean=false;
   change(){
@@ -90,9 +108,7 @@ export class WupinPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WupinPage');
   }
-  gosuccess(){
-    this.navCtrl.push(PushsuccessPage);
-  }
+  
   goback(){
     this.navCtrl.pop();
   }

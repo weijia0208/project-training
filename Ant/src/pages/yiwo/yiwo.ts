@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PushsuccessPage } from '../pushsuccess/pushsuccess';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
-
+import { HttpClient } from '@angular/common/http';
 /**
  * Generated class for the YiwoPage page.
  *
@@ -17,15 +17,24 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
   templateUrl: 'yiwo.html',
 })
 export class YiwoPage {
-
-  constructor(private camera: Camera,private imagePicker: ImagePicker,public navCtrl: NavController, public navParams: NavParams) {
+  username:string=localStorage.getItem(name);;
+  issue_time;
+  issue_content;
+  constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad YiwoPage');
+    
   }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
+    this.issue_time=JSON.stringify(new Date());
+    this.http.post('/before/twoissues/yiwo',
+    {username:this.username,issue_time:this.issue_time,
+      issue_content:this.issue_content}).subscribe(data=>{
+      console.log(data);
+    })
   }
   goback(){
     this.navCtrl.pop();

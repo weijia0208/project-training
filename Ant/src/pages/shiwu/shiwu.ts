@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PushsuccessPage } from '../pushsuccess/pushsuccess';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
-import {HttpClient} from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
 /**
  * Generated class for the ShiwuPage page.
  *
@@ -18,14 +17,28 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: 'shiwu.html',
 })
 export class ShiwuPage {
+  username:string=localStorage.getItem(name);;
+  item_name;
+  item_time;
+  item_type;
+  item_addr;
+  item_date;
+  item_content;
+  item_pic;
+  item_number;
 
   constructor(public http:HttpClient,private camera: Camera,public navCtrl: NavController,private imagePicker: ImagePicker,public navParams: NavParams) {
   }
   ionViewDidLoad() {
-    
+    console.log('ionViewDidLoad ShiwuPage');
   }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
+    this.item_time=JSON.stringify(new Date());
+    this.http.post('/before/twofound/shiwu',{username:this.username,item_name:this.item_name,item_time:this.item_time,item_type:this.item_type,
+    item_addr:this.item_addr,item_date:this.item_date,item_content:this.item_content,item_number:this.item_number}).subscribe(data => {
+      console.log(data);
+    })
   }
   goback(){
     this.navCtrl.pop();
@@ -101,6 +114,7 @@ export class ShiwuPage {
   }
 
   kind:string='';
+  html:string='';
   show(){
     var txt = this.kind;
     if(txt=='饭卡'){

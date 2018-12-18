@@ -25,6 +25,12 @@ var partime_jobRouter = require('./routes/ant/partime_job.js');
 var commodityRouter = require('./routes/ant/commodity.js');
 var chatRouter = require('./routes/ant/chat.js');
 var beforeuserRouter = require('./routes/ant/beforeuser.js');
+var twofoundRouter = require('./routes/ant/twofound.js');
+var twoissuesRouter = require('./routes/ant/twoissues.js');
+var twojobRouter = require('./routes/ant/twojob.js');
+var twocommodityRouter = require('./routes/ant/twocommodity.js');
+var twodeliveryRouter = require('./routes/ant/twodelivery.js');
+
 
 var app = express();
 
@@ -59,6 +65,11 @@ app.use('/before/partime_job',partime_jobRouter);
 app.use('/before/commodity',commodityRouter);
 app.use('/before/chat',chatRouter);
 app.use('/before/user',beforeuserRouter);
+app.use('/before/twofound',twofoundRouter);
+app.use('/before/twoissues',twoissuesRouter);
+app.use('/before/twojob',twojobRouter);
+app.use('/before/twocommodity',twocommodityRouter);
+app.use('/before/twodelivery',twodeliveryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
