@@ -33,7 +33,7 @@ router.post('/',function(req,res){
 router.delete('/',function(req,res){
   res.header('Access-Control-Allow-Origin', '*');
   if(req.body === '') {
-    user.delAll((err) => {
+    message.delAll((err) => {
       if(err) {
         res.staus(500).send('DB error!');
                       
@@ -43,7 +43,7 @@ router.delete('/',function(req,res){
     });
       
   } else {
-    user.delItem(req.body.item,function(err){
+    message.delItem(req.body.item,function(err){
       if(err){
         res.status(500).send('DB error');
       }else{
@@ -57,7 +57,7 @@ router.put('/',function(req,res){
   if(typeof req.query.id === 'undefined'){
     res.status(404).send('Not found!');
   }else{
-    user.update(Number(req.query.id),req.body.item,function(err){
+    message.update(Number(req.query.id),req.body.item,function(err){
       if(err){
         res.status(500).send('DB error');
       }else{

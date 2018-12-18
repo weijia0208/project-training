@@ -25,6 +25,7 @@ var goodstypeadd= require('./routes/ant-back/goods-type-add');
 var parttimeadd= require('./routes/ant-back/part-time-add');
 var expressadd= require('./routes/ant-back/express-add');
 var userbefore = require('./routes/ant/user.js');
+var feedRouter = require('./routes/ant/feedback.js');
 var app = express();
 
 // view engine setup
@@ -58,6 +59,7 @@ app.use('/goods-type-add',goodstypeadd);
 app.use('/part-time-add',parttimeadd);
 app.use('/express-add',expressadd);
 app.use('/before/user',userbefore);
+app.use('/before/feedback',feedRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
