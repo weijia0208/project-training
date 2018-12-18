@@ -5,7 +5,8 @@ import { PublicPage } from '../public/public';
 import { HelpPage } from '../help/help';
 import { AnliPage } from '../anli/anli';
 import { SetPage } from '../set/set';
-import {MyPartPage} from '../my-part/my-part';
+import {HttpClient} from '@angular/common/http';
+import { MyReplacePage } from '../my-replace/my-replace';
 
 /**
  * Generated class for the MinePage page.
@@ -21,17 +22,37 @@ import {MyPartPage} from '../my-part/my-part';
 })
 export class MinePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  n;
+  ionViewDidLoad() {
+    // this.http.get('/before/user').subscribe(data=>{
+    //   console.log(data);
+    // })
+    this.n = document.getElementById('name').innerText;
   }
 
   seting(){
-    this.navCtrl.push(SetPage);
-  }
-  go(){
-    this.navCtrl.push(MyPartPage);
+    this.navCtrl.push(SetPage,{
+      name:this.n
+    });
   }
   goto(){
-    this.navCtrl.push(ProductPage);
+    this.navCtrl.push(ProductPage,{
+      name:this.n
+    });
+    //console.log(this.n);
+  }
+  go(){
+    this.navCtrl.push(MyReplacePage,{
+      name:this.n
+    });
+  }
+  public(){
+    this.navCtrl.push(PublicPage,{
+      name:this.n
+    });
   }
   help(){
     this.navCtrl.push(HelpPage);
@@ -39,8 +60,4 @@ export class MinePage {
   anli(){
     this.navCtrl.push(AnliPage);
   }
-  public(){
-    this.navCtrl.push(PublicPage);
-  }
-
 }

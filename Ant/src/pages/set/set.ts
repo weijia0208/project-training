@@ -11,15 +11,19 @@ import { SignUpPage } from '../sign-up/sign-up';
 })
 export class SetPage {
 
+  uname:string;
   constructor(public App:App,public navCtrl: NavController, public navParams: NavParams) {
+    this.uname = navParams.get('name');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SetPage');
+    //console.log(this.uname);
   }
 
   ziliao(){
-    this.navCtrl.push(ZiliaoPage);
+    this.navCtrl.push(ZiliaoPage,{
+      name:this.uname
+    });
   }
   signup(){
     this.App.getRootNavs()[0].setRoot(SignUpPage);

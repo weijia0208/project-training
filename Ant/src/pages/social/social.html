@@ -10,25 +10,14 @@
     <div class="input" (click)="input()">
       <input type="text" placeholder="来蚁窝，找你所想">
     </div>
-    <div class="content" (click)="go()">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <div class="label">#我想要#</div>
-      <p>想找一部旧手机，OPPOR系列的，至少八成新，有出售意向的联系我</p>
-    </div>
-    <div class="content1">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <div class="label">#失物寻找#</div>
-      <p>想找一部旧手机，OPPOR系列的，至少八成新，有出售意向的联系我</p>
-    </div>
-    <div class="content1">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <div class="label">#我想要#</div>
-      <p>想找一部旧手机，OPPOR系列的，至少八成新，有出售意向的联系我</p>
-    </div>
-    <div class="content1">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <div class="label">#失物寻找#</div>
-      <p>想找一部旧手机，OPPOR系列的，至少八成新，有出售意向的联系我</p>
-    </div>
+    <ul>
+        <li *ngFor="let item of issues;let i=index;">
+        <div class="content" (click)="GoDetail(i)">
+          <img src="assets/imgs/touxiang.jpg" alt="">
+          <div class="label">{{item.issue_lable}}</div>
+          <p>{{item.issue_content}}</p>
+        </div>
+      </li>
+    </ul>
   </ion-content>
   

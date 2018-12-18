@@ -1,4 +1,8 @@
 page-public {
+    ul{
+        padding:0;
+        margin:0;
+    }
     ion-content{
         background-color: #eee !important;
       
@@ -18,19 +22,22 @@ page-public {
         padding:3px 0;
     }
     .shangpin{   
-        font-size: 16px;
+        font-size: 18px;
         margin:10px;
     }
     .jiage{
         float:right; 
         margin-right: 5px;
         color: #F7BE7F;  
-        font-size: 16px;
+        font-size: 18px;
         text-align: right;
     }
     .det{
+        font-size: 15px;
         margin-top:10px;
         margin-left: 110px;
+        height: 40px;
+        overflow: hidden;
     }
     .det span{
         color: #2AAF74;

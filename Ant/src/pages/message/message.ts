@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import { HttpClient }from '@angular/common/http';
 
 /**
  * Generated class for the MessagePage page.
@@ -16,11 +17,13 @@ import { ChatPage } from '../chat/chat';
 })
 export class MessagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  chats;
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MessagePage');
+    this.http.get('/before/chat').subscribe(data=>{
+      this.chats = data;
+    })
   }
 
   chat(){

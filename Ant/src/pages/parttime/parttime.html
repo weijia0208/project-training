@@ -7,24 +7,13 @@
   <div class="banner">
     <img src="assets/imgs/part-banner.jpg" alt="">
   </div>
-  <div class="con" (click)="GoDetail()">
-    <h5>365超市诚聘理货收银</h5>
-    <p>日结&nbsp;&nbsp;&nbsp;河北师范大学内国大超市</p>
-    <span>80/天</span>
-  </div>
-  <div class="con">
-    <h5>365超市诚聘理货收银</h5>
-    <p>日结&nbsp;&nbsp;&nbsp;河北师范大学内国大超市</p>
-    <span>80/天</span>
-  </div>
-  <div class="con">
-    <h5>365超市诚聘理货收银</h5>
-    <p>日结&nbsp;&nbsp;&nbsp;河北师范大学内国大超市</p>
-    <span>80/天</span>
-  </div>
-  <div class="con">
-    <h5>365超市诚聘理货收银</h5>
-    <p>日结&nbsp;&nbsp;&nbsp;河北师范大学内国大超市</p>
-    <span>80/天</span>
-  </div>
+  <ul>
+    <li *ngFor="let item of jobs;let i=index;">
+      <div class="con" (click)="GoDetail(i)">
+        <h5>{{item.part_name}}</h5>
+        <p>{{item.part_addr}}</p>
+        <span>{{item.part_price}}</span>
+      </div>
+    </li>
+  </ul>
 </ion-content>

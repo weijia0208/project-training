@@ -4,19 +4,27 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index1');
-var usersRouter = require('./routes/users');
-var userRouter = require('./routes/user');
-var articleRouter = require('./routes/article');
-var ideaRouter = require('./routes/idea');
-var messageRouter = require('./routes/message');
-var lostRouter = require('./routes/lost');
-var goodsRouter = require('./routes/goods');
-var goodstypeRouter = require('./routes/goods-type');
-var parttimeRouter = require('./routes/part-time');
-var exp = require('./routes/express');
-var useradd = require('./routes/user-add');
-
+var indexRouter = require('./routes/ant-back/index1');
+var usersRouter = require('./routes/ant-back/users');
+var userRouter = require('./routes/ant-back/user');
+var articleRouter = require('./routes/ant-back/article');
+var ideaRouter = require('./routes/ant-back/idea');
+var messageRouter = require('./routes/ant-back/message');
+var lostRouter = require('./routes/ant-back/lost');
+var goodsRouter = require('./routes/ant-back/goods');
+var goodstypeRouter = require('./routes/ant-back/goods-type');
+var parttimeRouter = require('./routes/ant-back/part-time');
+var exp = require('./routes/ant-back/express');
+var useradd = require('./routes/ant-back/user-add');
+var articleadd = require('./routes/ant-back/article-add');
+var ideaadd= require('./routes/ant-back/idea-add');
+var messageadd= require('./routes/ant-back/message-add');
+var lostadd= require('./routes/ant-back/lost-add');
+var goodsadd= require('./routes/ant-back/goods-add');
+var goodstypeadd= require('./routes/ant-back/goods-type-add');
+var parttimeadd= require('./routes/ant-back/part-time-add');
+var expressadd= require('./routes/ant-back/express-add');
+var userbefore = require('./routes/ant/user.js');
 var app = express();
 
 // view engine setup
@@ -41,6 +49,15 @@ app.use('/goods-type',goodstypeRouter);
 app.use('/part-time',parttimeRouter);
 app.use('/express',exp);
 app.use('/user-add',useradd);
+app.use('/article-add',articleadd);
+app.use('/idea-add',ideaadd);
+app.use('/message-add',messageadd);
+app.use('/lost-add',lostadd);
+app.use('/goods-add',goodsadd);
+app.use('/goods-type-add',goodstypeadd);
+app.use('/part-time-add',parttimeadd);
+app.use('/express-add',expressadd);
+app.use('/before/user',userbefore);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

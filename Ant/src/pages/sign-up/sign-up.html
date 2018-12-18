@@ -3,12 +3,14 @@
   <div class="inp">
     <ion-icon name="md-phone-portrait"></ion-icon>
     <span>账号：</span>
-    <input type="text">
+    <input type="text" [(ngModel)]="telNum" placeholder="请输入手机号">
   </div>
   <div class="inp">
     <ion-icon name="md-key"></ion-icon>
     <span>密码：</span>
-    <input type="password">
+    <input type="password" [(ngModel)]="psw" placeholder="请输入密码">
+    <span id="missAll"></span>
+    <!-- <span id="missPsw">密码错误！</span> -->
   </div>
   <button (click)="Home()">登录</button>
 </ion-content>

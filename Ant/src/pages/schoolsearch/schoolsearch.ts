@@ -18,7 +18,7 @@ export class SchoolsearchPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SchoolsearchPage');
+   
   }
   id:number;
   status:boolean=true;

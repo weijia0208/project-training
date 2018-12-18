@@ -12,24 +12,26 @@
 
 
 <ion-content>
-  <div class="head">
-    <img src="../../assets/imgs/lost_head.jpg" alt="">
-    <div class="txt">
-      <p>yaojing</p>
-      <span class="time">16:40</span>
-      <span class="place">启智园6号楼</span>
-    </div>
-  </div>
-  <h1>xxxxxxxxxx</h1>
-  <div class="context">
-    <p>物品种类：饭卡&nbsp;&nbsp;&nbsp;20160113xx</p>
-    <p>拾物地点：xxxxxx</p>
-    <p>拾物时间：下午三点</p>
-    <p>详细描述：</p>
-    <p style="text-indent:2em">我今天在师生活动中心二楼大厅捡到了一张饭卡。姓名：姚静；学号：2016011397；软件学院2016级。有认识的同学或者失主本人可以联系我找我拿啊。
-    </p>
-    <img src="assets/imgs/lostdetail.jpg" alt="">
-  </div>
+  <ul>
+    <li *ngFor="let item of founds;let i =index;">
+      <div class="head">
+        <img src="../../assets/imgs/lost_head.jpg" alt="">
+        <div class="txt">
+          <p>{{item.username}}</p>
+          <span class="time">{{item.item_time}}</span>
+        </div>
+      </div>
+      <h1>{{item.item_name}}</h1>
+      <div class="context">
+        <p>物品种类：{{item.item_type}}&nbsp;&nbsp;&nbsp;{{item.item_number}}</p>
+        <p>拾物地点：{{item.item_addr}}</p>
+        <p>拾物时间：{{item.item_date}}</p>
+        <p>详细描述：</p>
+        <p style="text-indent:2em">{{item.item_content}}</p>
+        <img src="assets/imgs/lostdetail.jpg" alt="">
+      </div>
+    </li>
+  </ul>
 </ion-content>
 <ion-footer>
     <div class="but">

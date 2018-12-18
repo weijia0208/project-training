@@ -4,32 +4,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <div (click)="godetail()" class="product">
-    <img src="../assets/imgs/goodsdetail_1.jpg" alt="">
-    <span class="shangpin">张嘉佳·记事本</span>
-    <span class="jiage">￥35</span>
-    <p class="det"><span>详细信息：</span>买了几天了，但是一直没有用上，后来同学送了一个，想卖……</p>
-    <button>删除</button>
-  </div>
-  <div class="product">
-    <img src="../assets/imgs/zazhi.jpg" alt="">
-    <span class="shangpin">NEW YORK 杂志</span>
-    <span class="jiage">￥40</span>
-    <p class="det"><span>详细信息：</span>刚买了两个月看完了，想买书换钱，刚买了两个月看...........</p>
-    <button>删除</button>
-  </div>
-  <div class="product">
-    <img src="../assets/imgs/shouji.jpg" alt="">
-    <span class="shangpin">OPPO r17八成新</span>
-    <span class="jiage">￥1500</span>
-    <p class="det"><span>详细信息：</span>八成新OPPO手机，买了一年想换新的，粉色，内存128个g……</p>
-    <button>删除</button>
-  </div>
-  <div class="product">
-    <img src="../assets/imgs/zazhi.jpg" alt="">
-    <span class="shangpin">NEW YORK 杂志</span>
-    <span class="jiage">￥40</span>
-    <p class="det"><span>详细信息：</span>刚买了两个月看完了，想买书换钱，刚买了两个月看...........</p>
-    <button>删除</button>
-  </div>
+  <ul>
+    <li *ngFor="let item of good;let i=index;">
+        <div (click)="godetail(i)" class="product">
+            <img src="../assets/imgs/goodsdetail_1.jpg" alt="">
+            <span class="shangpin">{{item.goods_name}}</span>
+            <span class="jiage">￥{{item.goods_price}}</span>
+            <p class="det"><span>详细信息：</span>{{item.goods_description}}</p>
+            <button>删除</button>
+          </div>
+    </li>
+  </ul>
 </ion-content>

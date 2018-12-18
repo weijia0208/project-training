@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LostDetailPage } from '../lost-detail/lost-detail';
+import {HttpClient} from '@angular/common/http';
 
 /**
  * Generated class for the LostPage page.
@@ -16,14 +17,19 @@ import { LostDetailPage } from '../lost-detail/lost-detail';
 })
 export class LostPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  founds;
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LostPage');
+    this.http.get('/before/found').subscribe(data=>{
+     this.founds = data;
+    })
   }
 
-  GoDetail(){
-    this.navCtrl.push(LostDetailPage);
+  GoDetail(i){
+    this.navCtrl.push(LostDetailPage,{
+      content:this.founds[i]
+    });
   }
 }

@@ -6,16 +6,19 @@
   
   
   <ion-content>
-    <div class="top">
-      <img src="assets/imgs/touxiang.jpg" alt="">
-      <p>塑风如解意</p>
-      <span>2018-11-28</span>
-    </div>
-    <div class="mid">
-      <p><span>#找东西#</span>想找一部旧手机，OPPOR系列的，至少八成新，有出售意向的联系我</p>
-      <img src="assets/imgs/oppo.jpg" alt="">
-    </div>
-   
+   <ul>
+     <li *ngFor="let item of issue;">
+        <div class="top">
+            <img src="assets/imgs/touxiang.jpg" alt="">
+            <p>{{item.username}}</p>
+            <span>2018-11-28</span>
+          </div>
+          <div class="mid">
+            <p><span>{{item.issue_lable}}</span>{{item.issue_content}}</p>
+            <img src="assets/imgs/oppo.jpg" alt="">
+          </div>
+     </li>
+   </ul>   
   </ion-content>
   
   <ion-footer no-border>

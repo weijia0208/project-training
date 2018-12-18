@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import {HttpClient} from '@angular/common/http';
 
 /**
  * Generated class for the PartDetailPage page.
@@ -16,11 +17,17 @@ import { ChatPage } from '../chat/chat';
 })
 export class PartDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  content;
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
+    this.content = navParams.get('content');
   }
 
+  jobs;
+  job=[];
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PartDetailPage');
+    this.http.get('/before/partime_job').subscribe(data=>{
+      this.job[0] = this.content;
+    });
   }
 
   chat(){

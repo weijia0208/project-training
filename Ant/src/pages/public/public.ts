@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {GoodsdetailPage} from '../goodsdetail/goodsdetail';
+import{HttpClient}from '@angular/common/http';
+import { DelgoodsPage } from '../delgoods/delgoods';
 
 /**
  * Generated class for the PublicPage page.
@@ -16,14 +17,30 @@ import {GoodsdetailPage} from '../goodsdetail/goodsdetail';
 })
 export class PublicPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  uname:string;
+  constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
+    this.uname = navParams.get('name');
   }
 
+  goods;
+  good=[];
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PublicPage');
+    this.http.get('/before/commodity').subscribe(data=>{
+      //console.log(this.uname);
+      this.goods=data;
+      var a=0;
+      for(var i=0;i<this.goods.length;i++){
+        if(this.goods[i].username==this.uname){
+          this.good[a]=this.goods[i];
+          a++;
+        }
+      }
+    })
   }
 
-  godetail(){
-    this.navCtrl.push(GoodsdetailPage);
+  godetail(i){
+    this.navCtrl.push(DelgoodsPage,{
+      content:this.good[i]
+    });
   }
 }
