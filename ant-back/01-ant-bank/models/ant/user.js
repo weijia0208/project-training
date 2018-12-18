@@ -1,6 +1,18 @@
 const db = require('../database.js');
 
 var user = function(){};
+/*
+user.prototype.getUser = function(cb){
+  const sql = 'SELECT * FROM users';
+  db.query(sql,function(err,result){
+    if(err){
+      cb(true);
+      return;
+    }
+    cb(false,result);
+  });
+};
+*/
 
 user.prototype.getAll = function(obj,cb){
   const sql = 'SELECT * from users WHERE telNum = ?';

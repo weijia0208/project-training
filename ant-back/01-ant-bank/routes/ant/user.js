@@ -3,6 +3,17 @@ var express = require('express');
 var router = express.Router();
 
 var user = new Users();
+/*
+router.get('/',function(req,res){
+  user.getUser((err,result)=>{
+    if(err){
+      console.log(err);
+      return;
+    }
+    res.json(JSON.parse(JSON.stringify(result)));
+  });
+});
+*/
 
 router.post('/signup',function(req,res){
   res.header('Access-Control-Allow-Origin','*');
