@@ -8,6 +8,7 @@ import { SetPage } from '../set/set';
 import {HttpClient} from '@angular/common/http';
 import { MyReplacePage } from '../my-replace/my-replace';
 
+
 /**
  * Generated class for the MinePage page.
  *
@@ -25,34 +26,23 @@ export class MinePage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  n;
   ionViewDidLoad() {
-    // this.http.get('/before/user').subscribe(data=>{
-    //   console.log(data);
-    // })
-    this.n = document.getElementById('name').innerText;
+    var username=localStorage.getItem(name);
+    document.getElementById('name').innerText=username;
   }
 
   seting(){
-    this.navCtrl.push(SetPage,{
-      name:this.n
-    });
+    this.navCtrl.push(SetPage);
   }
   goto(){
-    this.navCtrl.push(ProductPage,{
-      name:this.n
-    });
+    this.navCtrl.push(ProductPage);
     //console.log(this.n);
   }
   go(){
-    this.navCtrl.push(MyReplacePage,{
-      name:this.n
-    });
+    this.navCtrl.push(MyReplacePage);
   }
   public(){
-    this.navCtrl.push(PublicPage,{
-      name:this.n
-    });
+    this.navCtrl.push(PublicPage);
   }
   help(){
     this.navCtrl.push(HelpPage);

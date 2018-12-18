@@ -7,7 +7,7 @@
   
   <ion-content>
    <ul>
-     <li *ngFor="let item of issue;">
+     <li *ngFor="let item of issue;let i=index;">
         <div class="top">
             <img src="assets/imgs/touxiang.jpg" alt="">
             <p>{{item.username}}</p>
@@ -17,13 +17,8 @@
             <p><span>{{item.issue_lable}}</span>{{item.issue_content}}</p>
             <img src="assets/imgs/oppo.jpg" alt="">
           </div>
+          <button class="but" (click)="delete(i)" ion-button>删除</button>
      </li>
    </ul>   
   </ion-content>
-  
-  <ion-footer no-border>
-    <div class="but">
-      <button (click)="delete()" ion-button>删除</button>
-    </div>
-  </ion-footer>
 

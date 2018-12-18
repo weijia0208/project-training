@@ -57,18 +57,14 @@ page-socialdel {
                 margin-bottom:10px;
             }
         }
-        
-    }
-    ion-footer{
-        // height:50px;
         .but{
-            button{
-                float:right;
-                margin-right:10px;
-                background-color:#f7be7f;
-                color:#333;
-                border-radius: 10px;
-            }
+            width: 20%;
+            height: 30px;
+            margin:15px;
+            color:#fff;
+            background: #f00;
+            float: right;
+            border-radius:5px;
         }
     }
 }

@@ -30,7 +30,9 @@ export class DelgoodsPage {
     })
   }
 
-  delete(){
-    
+  delete(i){
+    this.http.post('/before/commodity',{goods_id:this.goods[i].goods_id}).subscribe(data=>{
+      console.log(this.goods[i].goods_id);
+    });
   }
 }

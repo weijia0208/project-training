@@ -28,7 +28,10 @@ export class SocialdelPage {
     })
   }
 
-  delete(){
+  delete(i){
+    this.http.post('/before/issue',{issue_id:this.issue[i].issue_id}).subscribe(data=>{
+      console.log(this.issue[i].issue_id);
+    });
   }
 
 }

@@ -7,7 +7,7 @@
   
   <ion-content>
     <ul>
-      <li *ngFor="let item of job">
+      <li *ngFor="let item of job;let i=index;">
           <div class="head">
               <img src="../../assets/imgs/lost_head.jpg" alt="">
               <div class="txt">
@@ -27,11 +27,7 @@
               <p>职位描述</p>
               <p style="text-indent:2em">{{item.part_content}}</p>
             </div>
+            <button class="but" (click)="delete(i)">删除</button>
       </li>
     </ul>
   </ion-content>
-  <ion-footer>
-      <div class="but">
-          <button id="button" (click)="delete()">删除</button>
-        </div>
-  </ion-footer>

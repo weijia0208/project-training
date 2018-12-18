@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
+import { ProductPage } from '../product/product';
 
 /**
  * Generated class for the LostdelPage page.
@@ -28,8 +29,11 @@ export class LostdelPage {
     })
   }
 
-  delete(){
-    
+  delete(i){
+    this.http.post('/before/found',{item_id:this.founds[i].item_id}).subscribe(data=>{
+      console.log(this.founds[i].item_id);
+    });
+    this.navCtrl.pop();
   }
 
 }

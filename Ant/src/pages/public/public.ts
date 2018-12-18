@@ -17,20 +17,21 @@ import { DelgoodsPage } from '../delgoods/delgoods';
 })
 export class PublicPage {
 
-  uname:string;
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
-    this.uname = navParams.get('name');
   }
 
   goods;
   good=[];
   ionViewDidLoad() {
+    var username=localStorage.getItem(name);
+    //console.log(username);
+
     this.http.get('/before/commodity').subscribe(data=>{
       //console.log(this.uname);
       this.goods=data;
       var a=0;
       for(var i=0;i<this.goods.length;i++){
-        if(this.goods[i].username==this.uname){
+        if(this.goods[i].username==username){
           this.good[a]=this.goods[i];
           a++;
         }

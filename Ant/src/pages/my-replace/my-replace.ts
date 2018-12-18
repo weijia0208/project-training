@@ -16,20 +16,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MyReplacePage {
 
-  uname:string;
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
-    this.uname = navParams.get('name');
   }
 
   delivery;
   del=[];
   ionViewDidLoad() {
+    var username=localStorage.getItem(name);
+    //console.log(username);
+
     this.http.get('/before/delivery').subscribe(data=>{
       //console.log(this.uname);
       this.delivery=data;
       var a=0;
       for(var i=0;i<this.delivery.length;i++){
-        if(this.delivery[i].username==this.uname){
+        if(this.delivery[i].username==username){
           this.del[a]=this.delivery[i];
           a++;
         }
@@ -37,4 +38,12 @@ export class MyReplacePage {
     })
   }
 
+  delete(i){
+    this.http.post('/before/delivery',{take_id:this.del[i].take_id}).subscribe(data=>{
+      console.log(this.del[i].take_id);
+    });
+  }
+
+
+  
 }

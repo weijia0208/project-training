@@ -21,14 +21,11 @@ export class SignUpPage {
   psw;
   constructor(public http:HttpClient,public App:App,public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad SignUpPage');
-  // }
-
   signin(){
     this.App.getRootNavs()[0].setRoot(SignInPage);
   }
+  users;
+  name;
   Home(){
     this.http.post('/before/user/signup',{telNum:this.telNum}).subscribe((data)=>{
       if(JSON.stringify(data)=='[]'){
@@ -38,7 +35,17 @@ export class SignUpPage {
         document.getElementById('missAll').innerHTML = '密码错误！';
         document.getElementById('missAll').style.display = 'inline';
       }else{
-        this.App.getRootNavs()[0].setRoot(TabsPage);
+        this.users=data;
+        for(var i=0;i<this.users.length;i++){
+          if(this.users[i].telNum==this.telNum){
+            this.name=this.users[i].username;
+          }
+        }
+        localStorage.setItem(name,this.name);
+        //this.App.getRootNavs()[0].setRoot(TabsPage);
+        this.navCtrl.push(TabsPage,{
+          username:this.name
+        })
       }
     });
   }

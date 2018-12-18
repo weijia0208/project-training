@@ -40,21 +40,21 @@ page-lostdel {
         margin-left:15px;
         color:#f7be7f;
     }
+    .but{
+        width: 20%;
+        height: 30px;
+        margin:15px;
+        color:#fff;
+        background: #f00;
+        float: right;
+        border-radius: 15px;
+    }
     .context{
         margin-left:15px;
         margin-right:15px;
         img{
             width:100%;
             height:200px;
-        }
-    }
-    .but{
-        button{
-            width: 100%;
-            height: 50px;
-            background-color: #f00;
-            color:#fff;
-            font-size: 18px;
         }
     }
 }

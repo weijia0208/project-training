@@ -13,12 +13,12 @@
 </ion-header>
 <ion-content>
   <div class="put">
-    <textarea name="" id="" placeholder="#请输入你的意见或建议#" cols="45" rows="6"></textarea>
+    <textarea name="" id="" placeholder="#请输入你的意见或建议#" cols="45" rows="6" [(ngModel)]="feedback"></textarea>
     <div id="div1" text-left>
       <div><img src="assets/imgs/takephoto.png" style="width:106px;" (click)="change()"></div>
     </div>
   </div>
-  <div class="tel">联系电话<input type="text" name="" id=""></div>
+  <div class="tel">反馈类型<input type="text" [(ngModel)]="feedtypes"></div>
   <div class="submit"><button (click)="go()">提交</button></div>
 </ion-content>
 <ion-footer style="display:none;background-color: #aaa;" id="footer">
