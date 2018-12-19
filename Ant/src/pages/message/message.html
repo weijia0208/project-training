@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content>
   <ul class="content">
-    <li *ngFor="let item of chats" (click)="chat()">
+    <li *ngFor="let item of ch" (click)="chat()">
       <div class="peo"><img src="assets/imgs/touxiang.jpg" alt=""></div> 
       <div class="msg"><a>{{item.chatting}}</a><br>{{item.content}}</div>    
     </li>
