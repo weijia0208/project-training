@@ -17,7 +17,7 @@ var parttimeRouter = require('./routes/part-time');
 var exp = require('./routes/express');
 var useradd = require('./routes/user-add');
 
-//var userbRouter = require('./routes/ant/user.js');
+var userbefore = require('./routes/ant/user.js');
 var issueRouter = require('./routes/ant/issue.js');
 var foundRouter = require('./routes/ant/found.js');
 var deliveryRouter = require('./routes/ant/delivery.js');
@@ -57,7 +57,7 @@ app.use('/part-time',parttimeRouter);
 app.use('/express',exp);
 app.use('/user-add',useradd);
 
-//app.use('/before/user',userbRouter);
+app.use('/before/users',userbefore);
 app.use('/before/issue',issueRouter);
 app.use('/before/found',foundRouter);
 app.use('/before/delivery',deliveryRouter);
