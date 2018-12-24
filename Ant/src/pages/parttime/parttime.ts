@@ -20,10 +20,19 @@ export class ParttimePage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  jobs;
+  all;
+  jobs=[];
   ionViewDidLoad() {
+    var userschool=localStorage.getItem("school");
     this.http.get('/before/partime_job').subscribe(data=>{
-      this.jobs=data;
+      this.all=data;
+      var m=0;
+      for(var n=0;n<this.all.length;n++){
+        if(this.all[n].goods_addr==userschool){
+          this.jobs[m]=this.all[n];
+          m++;
+        }
+      }
     })
   }
   GoDetail(i){

@@ -20,10 +20,19 @@ export class ReplacePage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  delivery;
+  all;
+  delivery=[];
   ionViewDidLoad() {
     this.http.get('/before/delivery').subscribe(data=>{
-      this.delivery=data;
+      var userschool=localStorage.getItem("school");
+      this.all=data;
+      var m=0;
+      for(var n=0;n<this.all.length;n++){
+        if(this.all[n].goods_addr==userschool){
+          this.delivery[m]=this.all[n];
+          m++;
+        }
+      }
     })
   }
 
