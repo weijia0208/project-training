@@ -24,8 +24,23 @@ var goodsadd= require('./routes/ant-back/goods-add');
 var goodstypeadd= require('./routes/ant-back/goods-type-add');
 var parttimeadd= require('./routes/ant-back/part-time-add');
 var expressadd= require('./routes/ant-back/express-add');
+//前端
 var userbefore = require('./routes/ant/user.js');
 var feedRouter = require('./routes/ant/feedback.js');
+var issueRouter = require('./routes/ant/issue.js');
+var foundRouter = require('./routes/ant/found.js');
+var deliveryRouter = require('./routes/ant/delivery.js');
+var partime_jobRouter = require('./routes/ant/partime_job.js');
+var commodityRouter = require('./routes/ant/commodity.js');
+var chatRouter = require('./routes/ant/chat.js');
+var beforeuserRouter = require('./routes/ant/beforeuser.js');
+var twofoundRouter = require('./routes/ant/twofound.js');
+var twoissuesRouter = require('./routes/ant/twoissues.js');
+var twojobRouter = require('./routes/ant/twojob.js');
+var twocommodityRouter = require('./routes/ant/twocommodity.js');
+var twodeliveryRouter = require('./routes/ant/twodelivery.js');
+
+
 var app = express();
 
 // view engine setup
@@ -58,8 +73,22 @@ app.use('/goods-add',goodsadd);
 app.use('/goods-type-add',goodstypeadd);
 app.use('/part-time-add',parttimeadd);
 app.use('/express-add',expressadd);
-app.use('/before/user',userbefore);
+//前端
+app.use('/before/users',userbefore);
 app.use('/before/feedback',feedRouter);
+app.use('/before/issue',issueRouter);
+app.use('/before/found',foundRouter);
+app.use('/before/delivery',deliveryRouter);
+app.use('/before/partime_job',partime_jobRouter);
+app.use('/before/commodity',commodityRouter);
+app.use('/before/chat',chatRouter);
+app.use('/before/user',beforeuserRouter);
+app.use('/before/twofound',twofoundRouter);
+app.use('/before/twoissues',twoissuesRouter);
+app.use('/before/twojob',twojobRouter);
+app.use('/before/twocommodity',twocommodityRouter);
+app.use('/before/twodelivery',twodeliveryRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
