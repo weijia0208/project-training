@@ -32,7 +32,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of study;let i =index;" class="li" (click)="GoSdetail(i)">
-                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <img src="{{item.goods_pic}}" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>
@@ -45,7 +45,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of makeup;let i =index;" class="li" (click)="GoMdetail(i)">
-                          <img src="../../assets/imgs/home_goods2.jpg" alt="picture">
+                          <img src="{{item.goods_pic}}" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>
@@ -58,7 +58,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of life;let i =index;" class="li" (click)="GoLdetail(i)">
-                          <img src="../../assets/imgs/home_goods3.jpg" alt="picture">
+                          <img src="{{item.goods_pic}}" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>
@@ -71,7 +71,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of other;let i =index;" class="li" (click)="GoOdetail(i)">
-                          <img src="../../assets/imgs/home_goods4.jpg" alt="picture">
+                          <img src="{{item.goods_pic}}" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>

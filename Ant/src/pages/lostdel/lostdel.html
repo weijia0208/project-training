@@ -9,7 +9,6 @@
     <ul>
       <li *ngFor="let item of founds;let i =index;">
         <div class="head">
-          <img src="../../assets/imgs/lost_head.jpg" alt="">
           <div class="txt">
             <p>{{item.username}}</p>
             <span class="time">{{item.item_time}}</span>
@@ -22,7 +21,7 @@
           <p>拾物时间：{{item.item_date}}</p>
           <p>详细描述：</p>
           <p style="text-indent:2em">{{item.item_content}}</p>
-          <img src="assets/imgs/lostdetail.jpg" alt="">
+          <img src="{{item.item_pic}}" alt="">
         </div>
         <button class="but" (click)="delete(i)">删除</button>
       </li>

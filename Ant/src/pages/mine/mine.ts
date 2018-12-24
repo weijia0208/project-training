@@ -27,7 +27,7 @@ export class MinePage {
   }
 
   ionViewDidLoad() {
-    var username=localStorage.getItem(name);
+    var username=localStorage.getItem("name");
     document.getElementById('name').innerText=username;
   }
 

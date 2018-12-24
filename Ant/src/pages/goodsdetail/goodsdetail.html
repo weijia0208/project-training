@@ -8,7 +8,6 @@
   <ul>
     <li *ngFor="let item of goods">
         <div class="head">
-            <img src="../../assets/imgs/lost_head.jpg" alt="">
             <div class="txt">
               <p>{{item.username}}</p>
               <span class="time">{{item.goods_date}}</span>
@@ -22,8 +21,7 @@
           <div class="detail"><p>详细描述</p></div>
           <div class="con">
             <p style="text-indent:2em">{{item.goods_description}}</p>
-            <img src="../../assets/imgs/goodsdetail_1.jpg" alt="">
-            <img src="../../assets/imgs/goodsdetail_2.jpg" alt="">
+            <img src="{{item.goods_pic}}" alt="">
           </div>
     </li>
   </ul>

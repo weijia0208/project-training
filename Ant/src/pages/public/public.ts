@@ -23,7 +23,7 @@ export class PublicPage {
   goods;
   good=[];
   ionViewDidLoad() {
-    var username=localStorage.getItem(name);
+    var username=localStorage.getItem("name");
     //console.log(username);
 
     this.http.get('/before/commodity').subscribe(data=>{

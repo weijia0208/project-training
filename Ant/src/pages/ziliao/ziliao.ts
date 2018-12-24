@@ -18,6 +18,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ZiliaoPage {
 
+  
   constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker, public navParams: NavParams,public navCtrl: NavController,private toastCtrl: ToastController) {
   }
 
@@ -26,7 +27,6 @@ export class ZiliaoPage {
   user=[];
   ionViewDidLoad() {
     this.username=localStorage.getItem(name);
-    console.log(this.username);
     this.http.get('/before/users').subscribe(data=>{
       this.users=data;
       var a=0;

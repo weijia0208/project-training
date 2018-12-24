@@ -19,19 +19,11 @@ export class SocialPage {
   constructor(public http: HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  all;
-  issues=[];
+
+  issues;
   ionViewDidLoad() {
-    var userschool=localStorage.getItem("school");
     this.http.get('/before/issue').subscribe(data=>{
-      this.all=data;
-      var m=0;
-      for(var n=0;n<this.all.length;n++){
-        if(this.all[n].goods_addr==userschool){
-          this.issues[m]=this.all[n];
-          m++;
-        }
-      }
+      this.issues=data;
     })
   }
 
