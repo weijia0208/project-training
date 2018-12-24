@@ -14,7 +14,7 @@
    <li *ngFor="let item of user">
     <ion-list class="xingming">
       <ion-item>昵 &nbsp;&nbsp;&nbsp;称<input type="text" value="{{item.username}}">
-          <div class="touxiang"><img src="{{imgURL}}" alt="" (click)="change()"></div>
+          <div class="touxiang"><img src="{{item.avatar}}" alt="" (click)="change()"></div>
       </ion-item>
     </ion-list>
     <ion-list class="zhanghao">
