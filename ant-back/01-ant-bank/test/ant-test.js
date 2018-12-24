@@ -19,7 +19,13 @@ user.addUser({username:'weijia',studentId:123456,school:'河大',telNum:1234567,
   }
 });
 */
-  
+ 
+/*
 user.getAll({telNum:'15633744859'},function(err,items){
+  console.log(items);
+});
+*/
+
+user.update({username:'1',telNum:1,password:12,id:0},function(err,items){
   console.log(items);
 });
