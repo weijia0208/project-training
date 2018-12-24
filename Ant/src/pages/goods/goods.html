@@ -10,13 +10,13 @@
   <div class="banner">
       <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
           <ion-slide>
-            <img src="../../assets/imgs/home_banner1.jpg" alt="banner">
+            <img src="../../assets/imgs/goodsbanner1.jpg" alt="banner">
           </ion-slide>
           <ion-slide>
-              <img src="../../assets/imgs/home_banner2.jpg" alt="banner">
+              <img src="../../assets/imgs/goodsbanner2.jpg" alt="banner">
           </ion-slide>
           <ion-slide>
-            <img src="../../assets/imgs/home_banner3.jpg" alt="banner">
+            <img src="../../assets/imgs/goodsbanner3.jpg" alt="banner">
           </ion-slide>
         </ion-slides>
    </div>
@@ -45,7 +45,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of makeup;let i =index;" class="li" (click)="GoMdetail(i)">
-                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <img src="../../assets/imgs/home_goods2.jpg" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>
@@ -58,7 +58,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of life;let i =index;" class="li" (click)="GoLdetail(i)">
-                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <img src="../../assets/imgs/home_goods3.jpg" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>
@@ -71,7 +71,7 @@
               <div class="goods">
                   <ul>
                       <li *ngFor="let item of other;let i =index;" class="li" (click)="GoOdetail(i)">
-                          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+                          <img src="../../assets/imgs/home_goods4.jpg" alt="picture">
                           <div class="txt">
                              <span>{{item.goods_name}}</span>
                              <p>RMB{{item.goods_price}}</p>

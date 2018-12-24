@@ -18,16 +18,16 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ZiliaoPage {
 
-  username:string;
+  
   constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker, public navParams: NavParams,public navCtrl: NavController,private toastCtrl: ToastController) {
-   this.username = navParams.get('name');
   }
 
   users;
+  username:string;
   user=[];
   ionViewDidLoad() {
-    //console.log(this.username);
-    this.http.get('/before/user').subscribe(data=>{
+    this.username=localStorage.getItem(name);
+    this.http.get('/before/users').subscribe(data=>{
       this.users=data;
       var a=0;
       for(var i=0;i<this.users.length;i++){
