@@ -16,7 +16,7 @@
   <ul>
     <li *ngFor="let item of founds;let i=index;">
         <div class="good" (click)="GoDetail(i)">
-            <img src="../../assets/imgs/lost_head.jpg" alt="">
+            <img src="{{item.item_head}}" alt="">
             <div class="txt">
               <span>{{item.item_name}}</span>
               <p>{{item.item_type}}·{{item.item_content}}</p>

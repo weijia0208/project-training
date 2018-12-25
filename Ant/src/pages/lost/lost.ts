@@ -20,19 +20,11 @@ export class LostPage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  all;
-  founds=[];
+
+  founds;
   ionViewDidLoad() {
-    var userschool=localStorage.getItem("school");
     this.http.get('/before/found').subscribe(data=>{
-      this.all=data;
-      var m=0;
-      for(var n=0;n<this.all.length;n++){
-        if(this.all[n].goods_addr==userschool){
-          this.founds[m]=this.all[n];
-          m++;
-        }
-      }
+     this.founds=data;
     })
   }
 

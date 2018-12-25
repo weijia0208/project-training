@@ -36,7 +36,6 @@ import { JianzhiPage } from '../pages/jianzhi/jianzhi';
 import { ShiwuPage } from '../pages/shiwu/shiwu';
 import { WupinPage } from '../pages/wupin/wupin';
 import { YiwoPage } from '../pages/yiwo/yiwo';
-import { AnliPage } from '../pages/anli/anli';
 import { ChatPage } from '../pages/chat/chat';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { HelpPage } from '../pages/help/help';
@@ -86,7 +85,6 @@ import { PartdelPage } from '../pages/partdel/partdel';
     PushsuccessPage,
     WupinPage,
     YiwoPage,
-    AnliPage,
     ChatPage,
     FeedbackPage,
     HelpPage,
@@ -144,7 +142,6 @@ import { PartdelPage } from '../pages/partdel/partdel';
     PushsuccessPage,
     WupinPage,
     YiwoPage,
-    AnliPage,
     ChatPage,
     FeedbackPage,
     HelpPage,

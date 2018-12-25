@@ -9,7 +9,7 @@
   <ul>
     <li *ngFor="let item of job">
         <div class="head">
-            <img src="../../assets/imgs/lost_head.jpg" alt="">
+            <img src="{{item.part_head}}" alt="">
             <div class="txt">
               <p>{{item.username}}</p>
               <span class="time">{{item.part_date}}</span>

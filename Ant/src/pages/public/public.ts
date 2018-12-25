@@ -24,10 +24,7 @@ export class PublicPage {
   good=[];
   ionViewDidLoad() {
     var username=localStorage.getItem("name");
-    //console.log(username);
-
     this.http.get('/before/commodity').subscribe(data=>{
-      //console.log(this.uname);
       this.goods=data;
       var a=0;
       for(var i=0;i<this.goods.length;i++){

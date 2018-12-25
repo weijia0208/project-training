@@ -28,6 +28,7 @@ export class SignUpPage {
   name;
   school;
   id;
+  img;
   Home(){
     this.http.post('/before/user/signup',{telNum:this.telNum}).subscribe((data)=>{
       if(JSON.stringify(data)=='[]'){
@@ -43,11 +44,13 @@ export class SignUpPage {
             this.name=this.users[i].username;
             this.school=this.users[i].school;
             this.id=this.users[i].id;
+            this.img=this.users[i].avatar;
           }
         }
         localStorage.setItem("school",this.school);
         localStorage.setItem("name",this.name);
         localStorage.setItem("id",this.id);
+        localStorage.setItem("img",this.img);
 
         this.App.getRootNavs()[0].setRoot(TabsPage);
       }
