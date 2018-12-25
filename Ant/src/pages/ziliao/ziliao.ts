@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController,App} from 'ionic-a
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import {HttpClient} from '@angular/common/http';
-import { SetPage } from '../set/set';
+import { SignUpPage } from '../sign-up/sign-up';
 
 /**
  * Generated class for the ZiliaoPage page.
@@ -108,7 +108,7 @@ export class ZiliaoPage {
     this.http.post('/before/users',{username:this.uname,telNum:this.tel,password:this.psw,id:this.id}).subscribe(data=>{
       
     });
-    this.navCtrl.push(SetPage);
+    this.App.getRootNavs()[0].setRoot(SignUpPage);
   }
   
 
