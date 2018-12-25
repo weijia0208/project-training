@@ -10,7 +10,7 @@
       <ul>
           <li *ngFor="let item of goods;let i =index;">
             <div class="li" (click)="Godetail(i)">
-              <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+              <img src="{{item.goods_pic}}" alt="picture">
               <div class="txt">
                  <span>{{item.goods_name}}</span>
                  <p>RMB{{item.goods_price}}</p>
