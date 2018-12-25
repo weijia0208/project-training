@@ -23,7 +23,7 @@ export class ParttimePage {
   jobs;
   ionViewDidLoad() {
     this.http.get('/before/partime_job').subscribe(data=>{
-      this.jobs=data;
+     this.jobs=data;
     })
   }
   GoDetail(i){

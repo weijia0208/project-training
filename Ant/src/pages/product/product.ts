@@ -30,7 +30,7 @@ export class ProductPage {
   founds;
   found=[];
   ionViewDidLoad() {
-    var username=localStorage.getItem(name);
+    var username=localStorage.getItem("name");
     //console.log(username);
 
     this.http.get('/before/partime_job').subscribe(data=>{

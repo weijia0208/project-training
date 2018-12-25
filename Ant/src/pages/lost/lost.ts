@@ -20,10 +20,11 @@ export class LostPage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
   founds;
   ionViewDidLoad() {
     this.http.get('/before/found').subscribe(data=>{
-     this.founds = data;
+     this.founds=data;
     })
   }
 

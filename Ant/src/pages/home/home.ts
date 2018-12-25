@@ -27,16 +27,33 @@ export class HomePage {
     }
     
   }
-  goods;
+  all;
+  goods=[];
   new=[];
   ionViewDidLoad(){
+    var userschool=localStorage.getItem("school");
+    document.getElementById('school').innerText=userschool;
+
     this.http.get('/before/commodity').subscribe(data=>{
-      this.goods = data;
+      this.all=data;
+      var m=0;
+      for(var n=0;n<this.all.length;n++){
+        if(this.all[n].goods_addr==userschool){
+          this.goods[m]=this.all[n];
+          m++;
+        }
+      }
+   
       var j=0;
       var l = this.goods.length;
-      for(var i=l-1;i>=l-10;i--){
-        this.new[j]=this.goods[i];
-        j++;
+      if(l>=10){
+        for(var i=l-1;i>=l-10;i--){
+          this.new[j]=this.goods[i];
+          j++;
+        }
+      }
+      else{
+        this.new=this.goods;
       }
     })
   }

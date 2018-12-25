@@ -4,10 +4,7 @@
   </ion-navbar>
   <div class="sea">
       <div class="school">
-        <span (click)="GoSchool()">
-          学&nbsp;&nbsp;校&nbsp;
-          <ion-icon name="ios-arrow-down-outline"></ion-icon>
-        </span>
+        <span id="school"></span>
       </div>
       <div class="search">
          <input (focus)="GoSearch()" type="text" value="来蚂蚁，寻你所想">
@@ -75,7 +72,7 @@
     <ul>
       <li *ngFor="let item of new;let i =index;">
         <div class="li" (click)="Godetail(i)">
-          <img src="../../assets/imgs/home_goods1.jpg" alt="picture">
+          <img src="{{item.goods_pic}}" alt="picture">
           <div class="txt">
              <p style="color:#ffffff;">{{item.goods_name}}</p>
              <p style="color:#f7be7f;">RMB&nbsp;&nbsp;{{item.goods_price}}</p>

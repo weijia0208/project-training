@@ -22,18 +22,17 @@ export class MessagePage {
   chats;
   ch=[];
   ionViewDidLoad() {
-    var username=localStorage.getItem(name);
-
-
+    var username=localStorage.getItem("name");
     this.http.get('/before/chat').subscribe(data=>{
       this.chats = data;
       var a=0;
       for(var i=0;i<this.chats.length;i++){
-        if(this.chats[i].username==username){
+        if(this.chats[i].username==username){  
           this.ch[a]=this.chats[i];
           a++;
         }
       }
+      console.log(this.ch);
     })
   }
 

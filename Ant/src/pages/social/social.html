@@ -13,7 +13,7 @@
     <ul>
         <li *ngFor="let item of issues;let i=index;">
         <div class="content" (click)="GoDetail(i)">
-          <img src="assets/imgs/touxiang.jpg" alt="">
+          <img src="{{item.issue_head}}" alt="">
           <div class="label">{{item.issue_lable}}</div>
           <p>{{item.issue_content}}</p>
         </div>

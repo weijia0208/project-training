@@ -19,10 +19,11 @@ export class SocialPage {
   constructor(public http: HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
   issues;
   ionViewDidLoad() {
     this.http.get('/before/issue').subscribe(data=>{
-     this.issues = data;
+      this.issues=data;
     })
   }
 

@@ -25,14 +25,24 @@ export class GoodsPage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  goods;
+  all;
+  goods=[];
   study=[];
   makeup=[];
   life=[];
   other=[];
   ionViewDidLoad(){
+    var userschool=localStorage.getItem("school");
     this.http.get('/before/commodity').subscribe(data=>{
-      this.goods=data;
+      this.all=data;
+      var m=0;
+      for(var n=0;n<this.all.length;n++){
+        if(this.all[n].goods_addr==userschool){
+          this.goods[m]=this.all[n];
+          m++;
+        }
+      }
+
       var a=0,b=0,c=0,d=0;
       for(var i=0;i<this.goods.length;i++){
         if(this.goods[i].goods_type=='学习'){

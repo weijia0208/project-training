@@ -26,6 +26,9 @@ export class SignUpPage {
   }
   users;
   name;
+  school;
+  id;
+  img;
   Home(){
     this.http.post('/before/user/signup',{telNum:this.telNum}).subscribe((data)=>{
       if(JSON.stringify(data)=='[]'){
@@ -39,13 +42,17 @@ export class SignUpPage {
         for(var i=0;i<this.users.length;i++){
           if(this.users[i].telNum==this.telNum){
             this.name=this.users[i].username;
+            this.school=this.users[i].school;
+            this.id=this.users[i].id;
+            this.img=this.users[i].avatar;
           }
         }
-        localStorage.setItem(name,this.name);
-        //this.App.getRootNavs()[0].setRoot(TabsPage);
-        this.navCtrl.push(TabsPage,{
-          username:this.name
-        })
+        localStorage.setItem("school",this.school);
+        localStorage.setItem("name",this.name);
+        localStorage.setItem("id",this.id);
+        localStorage.setItem("img",this.img);
+
+        this.App.getRootNavs()[0].setRoot(TabsPage);
       }
     });
   }

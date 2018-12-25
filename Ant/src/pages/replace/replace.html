@@ -17,7 +17,7 @@
    <ul>
      <li *ngFor="let item of delivery">
         <div class="content">
-            <img src="assets/imgs/touxiang.jpg" alt="">
+            <img src="{{item.take_head}}" alt="">
             <p class="name">{{item.username}}</p>
             <h5>{{item.take_name}}&nbsp;|&nbsp;{{item.take_place}}</h5>
             <p class="issue">{{item.take_content}}</p>

@@ -23,7 +23,7 @@ export class ReplacePage {
   delivery;
   ionViewDidLoad() {
     this.http.get('/before/delivery').subscribe(data=>{
-      this.delivery=data;
+     this.delivery=data;
     })
   }
 

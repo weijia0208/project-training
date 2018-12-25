@@ -13,13 +13,13 @@
  <ul>
    <li *ngFor="let item of user">
     <ion-list class="xingming">
-      <ion-item>昵 &nbsp;&nbsp;&nbsp;称<input type="text" value="{{item.username}}">
+      <ion-item>昵 &nbsp;&nbsp;&nbsp;称<input type="text" placeholder="{{item.username}}" [(ngModel)]="uname" name="uname">
           <div class="touxiang"><img src="{{item.avatar}}" alt="" (click)="change()"></div>
       </ion-item>
     </ion-list>
     <ion-list class="zhanghao">
-      <ion-item>手机号<input type="text" value="{{item.telNum}}"></ion-item>
-      <ion-item>密  &nbsp;&nbsp;&nbsp;码<input type="password" value="{{item.password}}"></ion-item>
+      <ion-item>手机号<input type="text" placeholder="{{item.telNum}}" [(ngModel)]="tel" name="tel"></ion-item>
+      <ion-item>密  &nbsp;&nbsp;&nbsp;码<input type="password" placeholder="{{item.password}}" [(ngModel)]="psw" name="psw"></ion-item>
     </ion-list>
     <div class="submit"><button (click)="setting()">确认保存</button></div>
    </li>
