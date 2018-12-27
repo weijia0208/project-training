@@ -29,9 +29,8 @@ export class SocialdelPage {
   }
 
   delete(i){
-    this.http.post('/before/issue',{issue_id:this.issue[i].issue_id}).subscribe(data=>{
-      console.log(this.issue[i].issue_id);
-    });
+    this.http.post('/before/issue',{issue_id:this.issue[i].issue_id}).subscribe(data=>{});
+    this.navCtrl.pop();
   }
 
 }

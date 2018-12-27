@@ -18,8 +18,5 @@ export class HelpPage {
   goto(){
     this.navCtrl.push(FeedbackPage);
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HelpPage');
-  }
 
 }

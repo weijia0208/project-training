@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'daiqu.html',
 })
 export class DaiquPage {
-  username:string=localStorage.getItem(name);
+  username:string=localStorage.getItem("name");
   take_time;
   take_name;
   take_place;
@@ -22,14 +22,20 @@ export class DaiquPage {
   take_id;
   constructor(public http:HttpClient,public navCtrl: NavController,public navParams: NavParams) { 
   } 
-  ionViewDidLoad() {  
-  }
+  // ionViewDidLoad() {  
+  // }
   //跳转到新的页面successPage：this.navCtrl.push(PushsuccessPage);
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
-    // console.log(this.take_time,this.take_name,this.take_place,this.take_text);
-    this.take_time=JSON.stringify(new Date());
-    //this.take_id +=
+
+    //获取当前时间
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    this.take_time = year + '-' + month + '-' + day + time;
+
     this.http.post('/before/twodelivery/daiqu',{username:this.username,take_time:this.take_time,take_name:this.take_name,
       take_place:this.take_place,take_text:this.take_text}).subscribe(data => {
       console.log(data);

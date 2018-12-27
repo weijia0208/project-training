@@ -16,7 +16,7 @@ import { Subscriber } from 'rxjs/Subscriber';
   templateUrl: 'jianzhi.html',
 })
 export class JianzhiPage {
-  username:string=localStorage.getItem(name);;
+  username:string=localStorage.getItem("name");
   part_date;
   part_name; 
   part_price;
@@ -27,12 +27,17 @@ export class JianzhiPage {
   constructor(public http:HttpClient,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JianzhiPage');
-  }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
-    this.part_date = new Date();
+
+    //获取当前时间
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    this.part_date = year + '-' + month + '-' + day + time;
+
     this.http.post('/before/twojob/jianzhi',{username:this.username,part_date:this.part_date,
       part_name:this.part_name,part_price:this.part_price,part_worktime:this.part_worktime,
       part_addr:this.part_addr,part_content:this.part_content}).subscribe(data => { 

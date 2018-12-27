@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
 import { HttpClient } from '@angular/common/http';
+import { PublicPage } from '../public/public';
 
 
 /**
@@ -32,7 +33,8 @@ export class DelgoodsPage {
 
   delete(i){
     this.http.post('/before/commodity',{goods_id:this.goods[i].goods_id}).subscribe(data=>{
-      console.log(this.goods[i].goods_id);
+      
     });
+    this.navCtrl.pop();
   }
 }

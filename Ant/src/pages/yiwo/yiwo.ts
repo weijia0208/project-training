@@ -17,32 +17,37 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'yiwo.html',
 })
 export class YiwoPage {
-  username:string=localStorage.getItem(name);;
+  username:string=localStorage.getItem("name");
   issue_time;
   issue_content;
   constructor(public http:HttpClient,private camera: Camera,private imagePicker: ImagePicker,public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad YiwoPage');
-    
-  }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
-    this.issue_time=JSON.stringify(new Date());
+
+    //获取当前时间
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    this.issue_time = year + '-' + month + '-' + day + time;
+
     this.http.post('/before/twoissues/yiwo',
     {username:this.username,issue_time:this.issue_time,
       issue_content:this.issue_content}).subscribe(data=>{
       console.log(data);
     })
   }
+
+  //返回
   goback(){
     this.navCtrl.pop();
   }
 
-
+  //头像转换
   footersty:boolean=false;
-
   change(){
     this.footersty=!this.footersty;
     if(this.footersty==false)
@@ -53,7 +58,8 @@ export class YiwoPage {
       document.getElementById('footer').style.display="block";
     }
   }
-
+  
+  //拍照
   imgURL:string;
   takephoto(){
     var div1=document.getElementById('div1');

@@ -17,11 +17,11 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'wupin.html',
 })
 export class WupinPage {
-  username:string=localStorage.getItem(name);;
+  username:string=localStorage.getItem("name");
   goods_name;
   goods_price;
   goods_type;
-  goods_addr;
+  goods_addr=localStorage.getItem("school");
   goods_date;
   goods_description;
   goods_pic;
@@ -30,10 +30,17 @@ export class WupinPage {
   }
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
-    this.goods_date=JSON.stringify(new Date());
-    this.http.post('/before/twocommodity/wupin',{
-      goods_price:this.goods_price,goods_type:this.goods_type,username:this.username,goods_addr:this.goods_addr,goods_date:this.goods_date,goods_description:this.goods_description}).subscribe(data => {
-      console.log(data);
+
+    //获取当前时间
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    this.goods_date = year + '-' + month + '-' + day + time;
+
+    this.http.post('/before/twocommodity/wupin',{goods_name:this.goods_name,goods_price:this.goods_price,goods_type:this.goods_type,username:this.username,goods_addr:this.goods_addr,goods_date:this.goods_date,goods_description:this.goods_description}).subscribe(data => {
+      // console.log(data);
     })
   }
   footersty:boolean=false;
@@ -104,9 +111,6 @@ export class WupinPage {
   back(){
       this.footersty=!this.footersty;
       document.getElementById('footer').style.display="none";
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WupinPage');
   }
   
   goback(){

@@ -31,9 +31,8 @@ export class PartdelPage {
   }
 
   delete(i){
-    this.http.post('/before/partime_job',{part_id:this.job[i].part_id}).subscribe(data=>{
-      console.log(this.job[i].part_id);
-    });
+    this.http.post('/before/partime_job',{part_id:this.job[i].part_id}).subscribe(data=>{});
+    this.navCtrl.pop();
   }
 
 }
