@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var loginRouter = require('./routes/ant-back/login');
+var zhuceRouter = require('./routes/ant-back/zhuce');
 var indexRouter = require('./routes/ant-back/index1');
 var usersRouter = require('./routes/ant-back/users');
 var userRouter = require('./routes/ant-back/user');
@@ -39,6 +41,7 @@ var twoissuesRouter = require('./routes/ant/twoissues.js');
 var twojobRouter = require('./routes/ant/twojob.js');
 var twocommodityRouter = require('./routes/ant/twocommodity.js');
 var twodeliveryRouter = require('./routes/ant/twodelivery.js');
+//var uploadRouter = require('./routes/ant/upload.js');
 
 
 var app = express();
@@ -53,6 +56,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/',loginRouter);
+app.use('/zhuce',zhuceRouter);
 app.use('/index1', indexRouter);
 app.use('/users', usersRouter);
 app.use('/user',userRouter);
@@ -88,6 +93,7 @@ app.use('/before/twoissues',twoissuesRouter);
 app.use('/before/twojob',twojobRouter);
 app.use('/before/twocommodity',twocommodityRouter);
 app.use('/before/twodelivery',twodeliveryRouter);
+//app.use('/before/upload',uploadRouter);
 
 
 // catch 404 and forward to error handler
