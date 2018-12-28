@@ -19,7 +19,7 @@ export class PushsuccessPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PushsuccessPage');
+    // console.log('ionViewDidLoad PushsuccessPage');
   }
 
 }

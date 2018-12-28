@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'shiwu.html',
 })
 export class ShiwuPage {
-  username:string=localStorage.getItem(name);;
+  username:string=localStorage.getItem("name");
   item_name;
   item_time;
   item_type;
@@ -38,17 +38,24 @@ export class ShiwuPage {
     
     this.http.get('/before/users').subscribe(data=>{
       this.users=data;
-      console.log(this.users);
     })
   }
   num='';
   gosuccess(){
     this.navCtrl.push(PushsuccessPage);
     //添加数据到失物招领表
-    this.item_time=JSON.stringify(new Date());
+
+    //获取当前时间
+    var date = new Date();
+    var time = date.toLocaleTimeString();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    this.item_time = year + '-' + month + '-' + day + time;
+
     this.http.post('/before/twofound/shiwu',{username:this.username,item_name:this.item_name,item_time:this.item_time,item_type:this.item_type,
     item_addr:this.item_addr,item_date:this.item_date,item_content:this.item_content,item_number:this.item_number}).subscribe(data => {
-      console.log(data);
+      // console.log(data);
     })
     //添加数据到消息表，发送推送给丢失人
     for(var i=0;i<this.users.length;i++){
@@ -56,9 +63,6 @@ export class ShiwuPage {
         this.lostname=this.users[i].username;
       }
     }
-    // this.http.post('/before/message',{username:this.lostname,chatting:this.chatting,content:this.content}).subscribe(data=>{
-    //   console.log(data);
-    // })
   }
   goback(){
     this.navCtrl.pop();
