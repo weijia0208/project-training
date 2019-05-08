@@ -1,0 +1,12 @@
+/* pages/about/about.wxss */
+.container{
+  padding:0px;
+  margin:0px;
+  width:100%;
+  height:auto;
+}
+.text{
+  width:95%;
+  font-size:14px;
+  padding:10px;
+}

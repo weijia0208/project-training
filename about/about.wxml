@@ -1,0 +1,5 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <view class="text">1. 小程序是个人作品，不隶属于任何组织</view>
+  <view class="text">2. 小程序致力于二手交易，有任何建议，或者发现问题、bug可以在意见反馈中反馈给我，小程序更多功能还在开发中，谢谢支持。</view>
+</view>
