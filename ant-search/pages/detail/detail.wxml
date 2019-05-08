@@ -1,0 +1,21 @@
+<view class="container">
+<view class="ar_cont">
+    <text class="ar_cont_h1">秋季自然特价美甲</text>
+    <text class="ar_cont_price">价格：¥1988  </text>
+    <view class="ar_line"></view>
+    <text class="ar_cont_h1">详情描述:</text>
+    <text class='ar_detail'>
+      一、涂指甲油之前要涂上指甲底油
+      二、不涂面油会让美甲面不堪一击
+      三、短甲小最好涂深色指甲油
+      四、美甲颜色要保持协调
+      五、不要小看修甲工具
+    </text>  
+</view>
+
+<view class="ar_coverpath">
+    <image src="../../images/banner_02.jpg" mode="aspectFill"></image>
+</view>
+
+<button class="btn" bindtap="bookTap">联系对方</button>
+</view>
