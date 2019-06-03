@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="goodslist">
+    <view class="title">
+      <text class="title-txt">标题</text>
+      <input class="title-inp" type="text" placeholder='请输入标题'/>
+    </view>
+    <view class="price">
+      <text class="price-txt">商品价格</text>
+      <input class="price-inp" type="text" placeholder='请输入商品的价格'/>
+    </view>
+    <view class="type">
+      <text class="type-txt">物品类型</text>
+      <view class="type-radio">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+  <view class="masterlist">
+    <view class="people">
+      <text class="people-txt">联系人</text>
+      <input class="people-inp" type="text" placeholder='联系人姓名'/>
+    </view>
+    <view class="phone">
+      <text class="phone-txt">联系方式</text>
+      <input class="phone-inp" type="text" placeholder='联系人的手机号码'/>
+    </view>
+  </view>
+
+  <view class="gooddetail">
+    <view class="detail">
+      <text class="detail-txt">详细描述:</text>
+      <textarea class="detail-inp" placeholder='请输入对物品的详细描述（不超过200字）'></textarea>
+    </view>
+  </view>
+
+  <view class='imgs'>
+    <!-- <text class="imgs-txt">图片描述:</text> -->
+    <button bindtap='chooseImage'>+添加图片描述</button>
+     <view wx:for="{{images}}" class="container">
+      <image src="{{item}}" mode="widthFix"></image>
+    </view>
+  </view>
+</view>
+<button class='btn' bindtap='success'>发布</button>

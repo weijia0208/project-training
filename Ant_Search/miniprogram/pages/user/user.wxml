@@ -1,0 +1,31 @@
+<!--user.wxml-->
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="top">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </view>
+      <view class="userlist">
+        <view bindtap='mygoods' class="my-goods">
+          <image class="my-image" src="cloud://ant-search-3e5bbf.616e-ant-search-3e5bbf/images/goods.png"></image>
+          <text class="my-text">我的二手物品</text> 
+        </view>
+        <view bindtap='feedback' class="my-feedback">
+          <image class="my-image" src="cloud://ant-search-3e5bbf.616e-ant-search-3e5bbf/images/feedback.png"></image>
+          <text class="my-text">意见反馈</text>
+        </view>
+        <view bindtap='about' class="my-about">
+          <image class="my-image" src="cloud://ant-search-3e5bbf.616e-ant-search-3e5bbf/images/about.png"></image>
+          <text class="my-text">关于</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+</view>
+
+
+

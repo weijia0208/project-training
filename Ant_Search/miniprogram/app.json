@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/detail/detail",
+    "pages/feedback/feedback",
+    "pages/user/user",
+    "pages/mygoods/mygoods",
+    "pages/add/add"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2AAF74",
+    "navigationBarTitleText": "蚂蚁寻物",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#2AAF74",
+    "backgroundColor": "#f6f6f7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"images/index_icon.png",
+        "selectedIconPath": "images/index_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "添加商品",
+        "iconPath": "images/skill_icon.png",
+        "selectedIconPath": "images/skill_icon_HL.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/user_icon.png",
+        "selectedIconPath": "images/user_icon_HL.png"
+      }
+    ]
+  }
+}
