@@ -3,6 +3,8 @@
 var app = getApp()
 var fileData = require('../../utils/data.js')
 
+wx.cloud.init();
+
 Page({
   // 页面初始数据
   data: {
@@ -18,13 +20,19 @@ Page({
       navTopItems: fileData.getIndexNavData(),
       // navSectionItems: fileData.getIndexNavSectionData(),
       curNavId: 1,
-		  curIndex: 0
+		  curIndex: 0,
   },
    
   onLoad:function(){
     var that = this
     that.setData({
       // list: that.data.navSectionItems
+    })
+    const db = wx.cloud.database()
+    db.collection('commodity').where({
+      _id: 'XPTG7aCEPC1o_Gjd' 
+    }).get().then(res => {
+      console.log(res.data)
     })
   },
   //标签切换

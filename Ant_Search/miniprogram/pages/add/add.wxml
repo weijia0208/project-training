@@ -2,11 +2,11 @@
   <view class="goodslist">
     <view class="title">
       <text class="title-txt">标题</text>
-      <input class="title-inp" type="text" placeholder='请输入标题'/>
+      <input class="title-inp" type="text" placeholder='请输入商品名称' bindinput='getTitle'/>
     </view>
     <view class="price">
       <text class="price-txt">商品价格</text>
-      <input class="price-inp" type="text" placeholder='请输入商品的价格'/>
+      <input class="price-inp" type="text" placeholder='请输入商品的价格' bindinput='getPrice'/>
     </view>
     <view class="type">
       <text class="type-txt">物品类型</text>
@@ -23,18 +23,18 @@
   <view class="masterlist">
     <view class="people">
       <text class="people-txt">联系人</text>
-      <input class="people-inp" type="text" placeholder='联系人姓名'/>
+      <input class="people-inp" type="text" placeholder='联系人姓名' bindinput='getUser'/>
     </view>
     <view class="phone">
       <text class="phone-txt">联系方式</text>
-      <input class="phone-inp" type="text" placeholder='联系人的手机号码'/>
+      <input class="phone-inp" type="text" placeholder='联系人的手机号码' bindinput='getTel'/>
     </view>
   </view>
 
   <view class="gooddetail">
     <view class="detail">
       <text class="detail-txt">详细描述:</text>
-      <textarea class="detail-inp" placeholder='请输入对物品的详细描述（不超过200字）'></textarea>
+      <textarea class="detail-inp" placeholder='请输入对物品的详细描述（不超过200字）' bindinput='getDetail'></textarea>
     </view>
   </view>
 

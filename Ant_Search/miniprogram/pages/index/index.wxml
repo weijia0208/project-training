@@ -39,9 +39,6 @@
                 <block wx:if="{{item.coverpath}}">
                     <image src="{{item.coverpath}}" mode="aspectFill"></image>
                 </block>
-                <!-- <block wx:else>
-                    <image src="../../images/default_pic.png" mode="aspectFill"></image>
-                </block> -->
                 </view>
                 <!--content-->
                 <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">

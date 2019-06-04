@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
     "pages/detail/detail",
     "pages/feedback/feedback",
     "pages/user/user",

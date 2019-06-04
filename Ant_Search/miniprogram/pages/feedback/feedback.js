@@ -5,22 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    feedback:''
   },
+
 
   /*提交意见成功函数*/
   success: function (options) {
     var that = this;
-    var timeOut = setTimeout(function () {
+    /*上传数据库 */
+    const db = wx.cloud.database()
+    db.collection('feedback').add({
+      data: {
+        feed_content:that.data.feedback
+      }
+    })
+   setTimeout(function () {
       wx.showToast({
         title: '成功',
         icon: 'success',
         duration: 2000
       })
     }, 2000);
-    timeOut();
+    
   },
 
+  getFeb:function(e){
+    const that = this
+    that.setData({
+      feedback:e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
