@@ -3,8 +3,6 @@
 var app = getApp()
 var fileData = require('../../utils/data.js')
 
-wx.cloud.init();
-
 Page({
   // 页面初始数据
   data: {
@@ -18,22 +16,65 @@ Page({
       duration: 1000,
       // nav 初始化
       navTopItems: fileData.getIndexNavData(),
-      // navSectionItems: fileData.getIndexNavSectionData(),
+      navSectionItems: fileData.getIndexNavSectionData(),
       curNavId: 1,
-		  curIndex: 0,
+		  curIndex: 0
+  },
+  /*下拉刷新 */
+  onPullDownRefresh: function () {
+    this.onLoad();
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    setTimeout(function () {
+      
+
+      wx.hideNavigationBarLoading() //完成停止加载
+
+      wx.stopPullDownRefresh() //停止下拉刷新
+
+    }, 1500);
   },
    
   onLoad:function(){
     var that = this
-    that.setData({
-      // list: that.data.navSectionItems
-    })
-    const db = wx.cloud.database()
-    db.collection('commodity').where({
-      _id: 'XPTG7aCEPC1o_Gjd' 
-    }).get().then(res => {
-      console.log(res.data)
-    })
+
+    //获取商品数据
+    wx.cloud.init();
+    var db = wx.cloud.database();
+    db.collection('commodity').where({}).get().then(res => {
+      var study = [],
+          life = [],
+          beauty = [],
+          other = [];
+      var s = 0,
+          l = 0,
+          b = 0,
+          o = 0;
+      for(var i=0;i<res.data.length;i++){
+        if(res.data[i].type === 'study'){
+          study[s]=res.data[i];
+          s++;          
+        } else if (res.data[i].type === 'life') {
+          life[l] = res.data[i];
+          l++;
+        } else if (res.data[i].type === 'beauty') {
+          beauty[b] = res.data[i];
+          b++;
+        } else{
+          other[o] = res.data[i];
+          o++;
+        }
+      }
+      that.data.navSectionItems[0] = res.data;
+      that.data.navSectionItems[1] = study;
+      that.data.navSectionItems[2] = life;
+      that.data.navSectionItems[3] = beauty;
+      that.data.navSectionItems[4] = other;
+
+      that.setData({
+        list: that.data.navSectionItems
+      })
+    });
   },
   //标签切换
   switchTab: function(e) {
@@ -50,20 +91,7 @@ Page({
   // 跳转至详情页
   navigateDetail: function(e){
     wx.navigateTo({
-      url:'../detail/detail?artype=' + e.currentTarget.dataset.artype
+      url: '../detail/detail?id='+e.currentTarget.dataset.id
     })
   },
-  // 加载更多
-  loadMore: function (e) {
-    console.log('加载更多')
-    var curid = this.data.curIndex
-
-    if (this.data.navSectionItems[curid].length === 0) return
-    
-    var that = this
-    that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
-    that.setData({
-      list: that.data.navSectionItems,
-    }) 
-  }
 })

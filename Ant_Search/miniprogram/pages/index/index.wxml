@@ -32,20 +32,20 @@
   <!--list-->
   <view class="nav_section">
     <view wx:if="{{list[curIndex]}}">
-        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+        <block wx:for="{{list[curIndex]}}" wx:for-item="item">
             <view class="nav_section_items" >
                 <!--image-->
-                <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
-                <block wx:if="{{item.coverpath}}">
-                    <image src="{{item.coverpath}}" mode="aspectFill"></image>
+                <view class="section_image" bindtap="navigateDetail" data-id="{{item._id}}">
+                <block wx:if="{{item.goods_pic}}">
+                    <image src="{{item.goods_pic}}" mode="aspectFill"></image>
                 </block>
                 </view>
                 <!--content-->
-                <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+                <view class="section_cont" bindtap="navigateDetail" data-id="{{item._id}}">
                     <view class="section_cont_sub">
-                        <text>{{item.subject}}</text>
+                        <text>{{item.goods_name}}</text>
                     </view>
-                    <view class="section_cont_price">价格：{{item.price}}</view>
+                    <view class="section_cont_price">价格：{{item.goods_price}}</view>
                 </view>
             </view>
             
