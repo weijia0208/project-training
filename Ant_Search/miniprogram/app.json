@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/databaseGuide/databaseGuide",
     "pages/detail/detail",
     "pages/feedback/feedback",
     "pages/user/user",
@@ -9,6 +8,7 @@
     "pages/add/add"
   ],
   "window": {
+    "backgroundColor":"#2AAF74",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2AAF74",
     "navigationBarTitleText": "蚂蚁寻物",

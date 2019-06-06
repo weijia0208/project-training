@@ -5,7 +5,6 @@ Page( {
     arr:[]
   },
   onLoad: function (options) {
-    console.log(options.id)
     this.setData({
       _id:options.id
     })  

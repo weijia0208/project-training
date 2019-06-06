@@ -1,10 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
+    wx.cloud.init()
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        var openid = res.result.openid
+        this.globalData.openid = openid
+      }
+    })
   },
   getUserInfo:function(cb){
     var that = this
@@ -24,8 +32,9 @@ App({
       })
     }
   },
+  
   globalData:{
-    userInfo: null,
-    phoneNumber: '18031945834',
+    userInfo: '',
+    phoneNumber: '',
   }
 })
