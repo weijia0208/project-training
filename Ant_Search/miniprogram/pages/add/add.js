@@ -12,18 +12,18 @@ Component({
    */
   data: {
     items: [
-      { name: 'study', value: '学习', checked: 'true'},
+      { name: 'study', value: '学习', checked: 'true' },
       { name: 'life', value: '生活' },
       { name: 'beauty', value: '美妆' },
       { name: 'other', value: '其他' }
     ],
-    title:'',
-    price:'',
-    type:'',
-    username:'',
-    telnum:'',
-    detailtext:'',
-    imagePath:''
+    title: '',
+    price: '',
+    type: '',
+    username: '',
+    telnum: '',
+    detailtext: '',
+    imagePath: ''
   },
 
   /**
@@ -31,18 +31,18 @@ Component({
    */
   methods: {
     /*获取标题 */
-    getTitle: function(e){
+    getTitle: function (e) {
       var that = this;
       that.setData({
-        title:e.detail.value
+        title: e.detail.value
       })
       // console.log(that.data.title)
     },
     /*获取商品价格 */
-    getPrice:function(e){
+    getPrice: function (e) {
       var that = this;
       that.setData({
-        price:e.detail.value
+        price: e.detail.value
       })
       // console.log(that.data.price)
     },
@@ -94,13 +94,13 @@ Component({
             filePath,
             success: res => {
               the.setData({
-                imagePath:res.fileID
+                imagePath: res.fileID
               })
             },
           })
         },
       })
-      
+
     },
     /*发布*/
     success: function (options) {
@@ -108,13 +108,13 @@ Component({
       /*上传数据库 */
       const db = wx.cloud.database()
       db.collection('commodity').add({
-        data:{
-          goods_name:that.data.title,
-          goods_decription:that.data.detailtext,
-          goods_price:that.data.price,
-          goods_type:that.data.type,
-          userTel:that.data.telnum,
-          goods_pic:that.data.imagePath
+        data: {
+          goods_name: that.data.title,
+          goods_decription: that.data.detailtext,
+          goods_price: that.data.price,
+          goods_type: that.data.type,
+          userTel: that.data.telnum,
+          goods_pic: that.data.imagePath
         }
       })
       /*上传成功 */
@@ -128,4 +128,3 @@ Component({
     },
   }
 })
-
