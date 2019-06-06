@@ -9,12 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  // bindViewTap: function () {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -42,13 +36,6 @@ Page({
         }
       })
     }
-    wx.cloud.init();
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        console.log('callFunction test result: ', res.result)
-      }
-    })
   },
   getUserInfo: function (e) {
     app.globalData.userInfo = e.detail.userInfo
