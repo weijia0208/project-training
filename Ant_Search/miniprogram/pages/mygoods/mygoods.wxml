@@ -1,12 +1,12 @@
 <!--pages/mygoods/mygoods.wxml-->
 <view class="container">
-  <view class="list">
-    <image src="../../images/recommend_img_04.png"></image>
+  <view class="list" wx:for="{{arr}}" wx:for-item="item" wx:for-index="index">
+    <image src="{{item.goods_pic}}"></image>
     <view class="right">
-      <text class="title">衣服</text>
-      <text class="price">￥35</text>
-      <text class="detailGood"> <text class="mesg">详细信息：</text> 全新没有穿过，在zara买的，有大小号三生三世十里桃花</text>
-      <button>删除</button>
+      <text class="title">{{item.goods_name}}</text>
+      <text class="price">{{item.goods_price}}</text>
+      <text class="detailGood"> <text class="mesg">详细信息：</text>{{item.goods_decription}}</text>
+      <button bindtap='Del' data-id="{{index}}">删除</button>
     </view>
   </view>
 </view>

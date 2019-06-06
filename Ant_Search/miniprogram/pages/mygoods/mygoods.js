@@ -1,17 +1,48 @@
 // pages/mygoods/mygoods.js
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    openid:'',
+    arr:[],
+    counterId:''
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (options) {   
+    if (app.globalData.openid) {
+      this.setData({
+        openid: app.globalData.openid
+      })
+    }
+    let that = this
+    const db = wx.cloud.database()
+    db.collection('commodity').where({
+      _openid: this.data.openid
+    }).get().then(res=>{
+      // console.log(res.data)
+      that.setData({
+        arr: res.data
+      })
+    }) 
+  },
+  Del:function(e){
+    var that = this
+    var id = e.currentTarget.dataset.id
+
+    const db = wx.cloud.database()
+    db.collection('commodity').doc(that.data.arr[id]._id).remove({
+      success: res => {
+        wx.showToast({
+          title: '删除成功',
+        })
+        that.onLoad();
+      }
+    })
 
   },
 

@@ -7,14 +7,17 @@
 .list{
   width:100%;
   height:130px;
-  border-bottom:1px #eee solid;
+  border-bottom:1px #ccc solid;
+  padding:5px;
 }
 image{
   width:130px;
   height:130px;
+  margin-left:5px;
   float:left;
 }
 .right{
+  margin-left:5px;
   padding:10px;
 }
 .title{
