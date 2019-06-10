@@ -51,13 +51,13 @@ Page({
           b = 0,
           o = 0;
       for(var i=0;i<res.data.length;i++){
-        if(res.data[i].type === 'study'){
+        if(res.data[i].goods_type === 'study'){
           study[s]=res.data[i];
           s++;          
-        } else if (res.data[i].type === 'life') {
+        } else if (res.data[i].goods_type === 'life') {
           life[l] = res.data[i];
           l++;
-        } else if (res.data[i].type === 'beauty') {
+        } else if (res.data[i].goods_type === 'beauty') {
           beauty[b] = res.data[i];
           b++;
         } else{

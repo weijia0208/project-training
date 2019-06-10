@@ -12,7 +12,7 @@ Component({
    */
   data: {
     items: [
-      { name: 'study', value: '学习', checked: 'true' },
+      { name: 'study', value: '学习' },
       { name: 'life', value: '生活' },
       { name: 'beauty', value: '美妆' },
       { name: 'other', value: '其他' }
@@ -36,7 +36,6 @@ Component({
       that.setData({
         title: e.detail.value
       })
-      // console.log(that.data.title)
     },
     /*获取商品价格 */
     getPrice: function (e) {
@@ -117,12 +116,22 @@ Component({
           goods_pic: that.data.imagePath
         }
       })
+        
+
       /*上传成功 */
       setTimeout(function () {
         wx.showToast({
           title: '成功',
           icon: 'success',
           duration: 2000
+        })
+        that.setData({
+          title: '',
+          price: '',
+          username: '',
+          telnum: '',
+          detailtext: '',
+          images: ''
         })
       }, 2000);
     },
